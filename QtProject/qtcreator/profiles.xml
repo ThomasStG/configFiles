@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QtCreatorProfiles>
+<!-- Written by QtCreator 10.0.0, 2023-03-30T21:27:22. -->
+<qtcreator>
+ <data>
+  <variable>Kit.IrrelevantAspects</variable>
+  <valuelist type="QVariantList"/>
+ </data>
+ <data>
+  <variable>Profile.0</variable>
+  <valuemap type="QVariantMap">
+   <value type="bool" key="PE.Profile.AutoDetected">false</value>
+   <value type="QString" key="PE.Profile.AutoDetectionSource"></value>
+   <valuemap type="QVariantMap" key="PE.Profile.Data">
+    <valuelist type="QVariantList" key="CMake.ConfigurationKitInformation">
+     <value type="QString">QT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}</value>
+     <value type="QString">CMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}</value>
+     <value type="QString">CMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}</value>
+     <value type="QString">CMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}</value>
+    </valuelist>
+    <valuemap type="QVariantMap" key="CMake.GeneratorKitInformation">
+     <value type="QString" key="ExtraGenerator"></value>
+     <value type="QString" key="Generator">Ninja</value>
+     <value type="QString" key="Platform"></value>
+     <value type="QString" key="Toolset"></value>
+    </valuemap>
+    <value type="QString" key="CMakeProjectManager.CMakeKitInformation">qt.tools.cmake</value>
+    <value type="QString" key="Debugger.Information">{909c0f29-fa36-4e8e-bec1-625c79bf7baa}</value>
+    <value type="QString" key="PE.Profile.Device">Desktop Device</value>
+    <value type="QString" key="PE.Profile.DeviceType">Desktop</value>
+    <valuemap type="QVariantMap" key="PE.Profile.ToolChainsV3">
+     <value type="QByteArray" key="C">{cbf74bed-db83-4b4c-b303-f75968d02887}</value>
+     <value type="QByteArray" key="Cxx">{80141f87-aa21-4baa-b5f1-a1e283530700}</value>
+    </valuemap>
+   </valuemap>
+   <value type="QString" key="PE.Profile.DeviceTypeForIcon"></value>
+   <value type="QString" key="PE.Profile.Icon"></value>
+   <value type="QString" key="PE.Profile.Id">{e6e9b024-c57a-4b04-933d-9cb9643fd2e4}</value>
+   <valuelist type="QVariantList" key="PE.Profile.MutableInfo"/>
+   <value type="QString" key="PE.Profile.Name">Desktop (arm-darwin-generic-mach_o-64bit)</value>
+   <value type="bool" key="PE.Profile.SDK">false</value>
+   <valuelist type="QVariantList" key="PE.Profile.StickyInfo"/>
+  </valuemap>
+ </data>
+ <data>
+  <variable>Profile.1</variable>
+  <valuemap type="QVariantMap">
+   <value type="bool" key="PE.Profile.AutoDetected">false</value>
+   <value type="QString" key="PE.Profile.AutoDetectionSource"></value>
+   <valuemap type="QVariantMap" key="PE.Profile.Data">
+    <valuelist type="QVariantList" key="CMake.ConfigurationKitInformation">
+     <value type="QString">QT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}</value>
+     <value type="QString">CMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}</value>
+     <value type="QString">CMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}</value>
+     <value type="QString">CMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}</value>
+    </valuelist>
+    <valuemap type="QVariantMap" key="CMake.GeneratorKitInformation">
+     <value type="QString" key="ExtraGenerator"></value>
+     <value type="QString" key="Generator">Ninja</value>
+     <value type="QString" key="Platform"></value>
+     <value type="QString" key="Toolset"></value>
+    </valuemap>
+    <value type="QString" key="CMakeProjectManager.CMakeKitInformation">qt.tools.cmake</value>
+    <value type="QString" key="Debugger.Information">{1f3939a1-0ee0-42ae-8c4f-b0715a9ff4a4}</value>
+    <value type="QString" key="PE.Profile.Device">Desktop Device</value>
+    <value type="QString" key="PE.Profile.DeviceType">Desktop</value>
+    <valuemap type="QVariantMap" key="PE.Profile.ToolChainsV3">
+     <value type="QByteArray" key="C">{6d57433c-7902-49ce-af20-f27b7f2f369a}</value>
+     <value type="QByteArray" key="Cxx">{6a4c9006-95b9-42c7-9b06-77a022820bc2}</value>
+    </valuemap>
+   </valuemap>
+   <value type="QString" key="PE.Profile.DeviceTypeForIcon"></value>
+   <value type="QString" key="PE.Profile.Icon"></value>
+   <value type="QString" key="PE.Profile.Id">{8f206e3c-68d5-4c2d-bab8-36dcf409ad00}</value>
+   <valuelist type="QVariantList" key="PE.Profile.MutableInfo"/>
+   <value type="QString" key="PE.Profile.Name">Desktop (arm-darwin-generic-mach_o-32bit)</value>
+   <value type="bool" key="PE.Profile.SDK">false</value>
+   <valuelist type="QVariantList" key="PE.Profile.StickyInfo"/>
+  </valuemap>
+ </data>
+ <data>
+  <variable>Profile.2</variable>
+  <valuemap type="QVariantMap">
+   <value type="bool" key="PE.Profile.AutoDetected">false</value>
+   <value type="QString" key="PE.Profile.AutoDetectionSource"></value>
+   <valuemap type="QVariantMap" key="PE.Profile.Data">
+    <valuelist type="QVariantList" key="CMake.ConfigurationKitInformation">
+     <value type="QString">QT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}</value>
+     <value type="QString">CMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}</value>
+     <value type="QString">CMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}</value>
+     <value type="QString">CMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}</value>
+    </valuelist>
+    <valuemap type="QVariantMap" key="CMake.GeneratorKitInformation">
+     <value type="QString" key="ExtraGenerator"></value>
+     <value type="QString" key="Generator">Xcode</value>
+     <value type="QString" key="Platform"></value>
+     <value type="QString" key="Toolset"></value>
+    </valuemap>
+    <value type="QString" key="CMakeProjectManager.CMakeKitInformation">qt.tools.cmake</value>
+    <value type="QString" key="Debugger.Information">{909c0f29-fa36-4e8e-bec1-625c79bf7baa}</value>
+    <value type="QString" key="PE.Profile.Device"></value>
+    <value type="QString" key="PE.Profile.DeviceType">Ios.Device.Type</value>
+    <valuemap type="QVariantMap" key="PE.Profile.ToolChainsV3"/>
+   </valuemap>
+   <value type="QString" key="PE.Profile.DeviceTypeForIcon"></value>
+   <value type="QString" key="PE.Profile.Icon"></value>
+   <value type="QString" key="PE.Profile.Id">{30067e59-08f7-45ed-bc70-3edcb320a938}</value>
+   <valuelist type="QVariantList" key="PE.Profile.MutableInfo"/>
+   <value type="QString" key="PE.Profile.Name">ARM64</value>
+   <value type="bool" key="PE.Profile.SDK">false</value>
+   <valuelist type="QVariantList" key="PE.Profile.StickyInfo"/>
+  </valuemap>
+ </data>
+ <data>
+  <variable>Profile.Count</variable>
+  <value type="int">3</value>
+ </data>
+ <data>
+  <variable>Profile.Default</variable>
+  <value type="QString">{e6e9b024-c57a-4b04-933d-9cb9643fd2e4}</value>
+ </data>
+ <data>
+  <variable>Version</variable>
+  <value type="int">1</value>
+ </data>
+</qtcreator>
