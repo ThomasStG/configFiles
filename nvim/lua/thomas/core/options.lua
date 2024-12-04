@@ -1,7 +1,6 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt
-
 opt.relativenumber = true
 opt.number = true
 
@@ -10,7 +9,7 @@ opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
-
+opt.softtabstop = 2
 opt.wrap = false
 
 -- search settings
@@ -41,3 +40,10 @@ opt.swapfile = false
 opt.mousescroll = "ver:0,hor:0"
 opt.mouse = ""
 opt.omnifunc = "v:lua.vim.lsp.omnifunc"
+vim.api.nvim_create_user_command(
+    "Play", -- Command name
+    function()
+        vim.cmd("!sp") -- Shell command to run
+    end,
+    { desc = "pause/play spotify" } -- Optional description
+)

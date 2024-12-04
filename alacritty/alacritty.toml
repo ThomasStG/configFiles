@@ -7,8 +7,13 @@ TERM = "xterm-256color"
 [window]
 padding.x = 10
 padding.y = 10
-
 decorations = "Buttonless"
+
+[window.dimensions]
+columns = 164  # Set the default number of columns
+lines = 40     # Set the default number of lines
+
+
 
 [font]
 normal.family = "MesloLGS Nerd Font Mono"
