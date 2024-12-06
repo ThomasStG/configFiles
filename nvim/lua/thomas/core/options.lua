@@ -110,17 +110,25 @@ local function save_to_git()
             print("Switched to branch: " .. branch_name)
         end
 
-        -- Stage and commit changes
-        local stage_cmd = "git add " .. vim.fn.shellescape(filepath)
-        vim.fn.system(stage_cmd)
+        -- Check if the file has changes before staging and committing
+        local status_cmd = string.format("git status --porcelain %s", vim.fn.shellescape(filepath))
+        local status_output = vim.fn.system(status_cmd)
 
-        local commit_msg = string.format("Undo state: %s", current_undo)
-        local commit_output = vim.fn.system("git commit -m " .. vim.fn.shellescape(commit_msg))
+        if status_output ~= "" then -- If there are changes
+            -- Stage and commit changes
+            local stage_cmd = "git add " .. vim.fn.shellescape(filepath)
+            vim.fn.system(stage_cmd)
 
-        if commit_output:find("nothing to commit") then
-            print("No changes to commit.")
+            local commit_msg = string.format("Undo state: %s", current_undo)
+            local commit_output = vim.fn.system("git commit -m " .. vim.fn.shellescape(commit_msg))
+
+            if commit_output:find("nothing to commit") then
+                print("No changes to commit.")
+            else
+                print("Changes committed to branch: " .. branch_name)
+            end
         else
-            print("Changes committed to branch: " .. branch_name)
+            print("No changes detected, skipping commit.")
         end
 
         -- Update the last saved undo state
@@ -135,3 +143,28 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     pattern = "*",
     callback = save_to_git,
 })
+-- Function to run git add and commit before quitting
+local function git_add_and_commit()
+    -- Stage all changes with git add
+    local add_cmd = "git add ."
+    vim.fn.system(add_cmd)
+
+    -- Commit the changes with a message
+    local commit_msg = "auto save on quit"
+    local commit_cmd = string.format('git commit -m "%s"', commit_msg)
+    vim.fn.system(commit_cmd)
+
+    print("Git changes added and committed with message: 'auto save on quit'")
+end
+
+-- Create an autocommand to run git add and commit when quitting
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*",
+    callback = git_add_and_commit,
+})
+
+-- Map :wqa to include git add and commit before quitting
+vim.api.nvim_create_user_command("Wqa", function()
+    git_add_and_commit()
+    vim.cmd("wqa") -- Execute :wqa after git add and commit
+end, {})
