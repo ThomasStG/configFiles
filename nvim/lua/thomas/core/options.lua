@@ -81,13 +81,11 @@ end
 
 local function save_to_git()
     if is_oil_buffer() then
-        print("Skipping save for Oil buffer.")
         return
     end
 
     local filepath = vim.fn.expand("%:p")
     if filepath == "" then
-        print("No file to save.")
         return
     end
 
@@ -98,7 +96,6 @@ local function save_to_git()
         local branch_name = generate_branch_name(current_undo, filepath)
         local current_branch, err = get_git_branch()
         if not current_branch then
-            print("Error: " .. err)
             return
         end
 
@@ -107,7 +104,6 @@ local function save_to_git()
             local branch_cmd =
                 string.format("git checkout -b %s 2>/dev/null || git checkout %s", branch_name, branch_name)
             vim.fn.system(branch_cmd)
-            print("Switched to branch: " .. branch_name)
         end
 
         -- Check if the file has changes before staging and committing
@@ -121,20 +117,10 @@ local function save_to_git()
 
             local commit_msg = string.format("Undo state: %s", current_undo)
             local commit_output = vim.fn.system("git commit -m " .. vim.fn.shellescape(commit_msg))
-
-            if commit_output:find("nothing to commit") then
-                print("No changes to commit.")
-            else
-                print("Changes committed to branch: " .. branch_name)
-            end
-        else
-            print("No changes detected, skipping commit.")
         end
 
         -- Update the last saved undo state
         last_saved_undo_hash = current_undo
-    else
-        print("No new undo state detected. Skipping branch creation.")
     end
 end
 
@@ -153,8 +139,6 @@ local function git_add_and_commit()
     local commit_msg = "auto save on quit"
     local commit_cmd = string.format('git commit -m "%s"', commit_msg)
     vim.fn.system(commit_cmd)
-
-    print("Git changes added and committed with message: 'auto save on quit'")
 end
 
 -- Create an autocommand to run git add and commit when quitting
