@@ -7,22 +7,23 @@ return {
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         "nvim-tree/nvim-web-devicons",
         "folke/todo-comments.nvim",
+        "folke/trouble.nvim", -- Ensure trouble.nvim is included in the dependencies
     },
     config = function()
         local telescope = require("telescope")
         local actions = require("telescope.actions")
         local transform_mod = require("telescope.actions.mt").transform_mod
-
         local trouble = require("trouble")
-        local trouble_telescope = require("trouble.providers.telescope")
+        local trouble_telescope = require("trouble.sources.telescope")
 
-        -- or create your custom action
+        -- Custom action for quickfix list
         local custom_actions = transform_mod({
             open_trouble_qflist = function(prompt_bufnr)
                 trouble.toggle("quickfix")
             end,
         })
 
+        -- Setup for Telescope
         telescope.setup({
             defaults = {
                 path_display = { "smart" },
@@ -31,28 +32,32 @@ return {
                         ["<C-k>"] = actions.move_selection_previous, -- move to prev result
                         ["<C-j>"] = actions.move_selection_next, -- move to next result
                         ["<C-q>"] = actions.send_selected_to_qflist + custom_actions.open_trouble_qflist,
-                        ["<C-t>"] = trouble_telescope.open(),
+                        ["<C-t>"] = trouble_telescope.open, -- Updated to use the new function
                     },
                 },
             },
-        })
-        require("telescope").load_extension("undo")
-        vim.keymap.set("n", "<leader>t", "<cmd>Telescope undo<cr>")
-        telescope.load_extension("fzf")
-        opts = {
             extensions = {
                 undo = {
                     side_by_side = true,
                     layout_strategy = "vertical",
                     layout_config = {
-                        preview_height = 0.8,
+                        preview_height = 1,
                     },
+                    on_select = function(entry)
+                        vim.cmd("w") -- Save the file to trigger `BufWritePost`
+                        vim.cmd("undo")
+                    end,
                 },
             },
-        }
-        -- set keymaps
-        local keymap = vim.keymap -- for conciseness
+        })
 
+        -- Load extensions
+        telescope.load_extension("undo")
+        telescope.load_extension("fzf")
+
+        -- Keymaps
+        local keymap = vim.keymap -- for conciseness
+        keymap.set("n", "<leader>t", "<cmd>Telescope undo<cr>", { desc = "Telescope undo history" })
         keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
         keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
         keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })

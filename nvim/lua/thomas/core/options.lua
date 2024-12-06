@@ -73,6 +73,12 @@ local function get_current_undo_hash()
     return curhead
 end
 
+-- Generate a unique branch name based on the current undo state and file path
+local function generate_branch_name(current_undo, filepath)
+    local sanitized_path = filepath:gsub("[/:\\]", "_") -- Replace special characters
+    return string.format("undo_%s_%s", sanitized_path, current_undo)
+end
+
 local function save_to_git()
     if is_oil_buffer() then
         print("Skipping save for Oil buffer.")
@@ -89,7 +95,7 @@ local function save_to_git()
 
     -- Check if the current undo state differs from the last saved state
     if current_undo ~= last_saved_undo_hash then
-        local branch_name = "undo_" .. current_undo
+        local branch_name = generate_branch_name(current_undo, filepath)
         local current_branch, err = get_git_branch()
         if not current_branch then
             print("Error: " .. err)
