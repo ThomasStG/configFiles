@@ -1,0 +1,37 @@
+version = 3
+final_space = true
+console_title_template = '{{.Shell}} in {{ .Folder}}'
+
+[upgrade]
+source = 'cdn'
+interval = '168h'
+auto = false
+notice = false
+
+[[blocks]]
+# Block 1: Current working directory (CWD)
+[[blocks.segments]]
+type = "path"
+style = "powerline"
+foreground = "white"
+background = "blue"
+template = " {{ .Path }} "
+powerline_symbol = ">"
+
+[[blocks]]
+# Block 2: Git status
+[[blocks.segments]]
+type = "git"
+style = "powerline"
+foreground = "black"
+background = "green"
+powerline_symbol = ">"
+
+[[blocks]]
+# Block 3: Transient prompt for any command
+[[blocks.segments]]
+type = "prompt"
+style = "powerline"
+foreground = "black"
+background = "cyan"
+powerline_symbol = ">"
