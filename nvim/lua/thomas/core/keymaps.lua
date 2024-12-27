@@ -28,10 +28,10 @@ keymap.set("n", "<leader>z", ":wq<CR>", { desc = "save and close  current file" 
 keymap.set("n", "<leader>y", '"*y', { desc = "copy " })
 
 keymap.set("n", "<leader>t", ":GundoToggle<CR>", { desc = "undo Tree" })
-vim.keymap.set("", "<up>", "<nop>", { noremap = true })
-vim.keymap.set("", "<down>", "<nop>", { noremap = true })
-vim.keymap.set("i", "<up>", "<nop>", { noremap = true })
-vim.keymap.set("i", "<down>", "<nop>", { noremap = true })
+keymap.set("", "<up>", "<nop>", { noremap = true })
+keymap.set("", "<down>", "<nop>", { noremap = true })
+keymap.set("i", "<up>", "<nop>", { noremap = true })
+keymap.set("i", "<down>", "<nop>", { noremap = true })
 
 keymap.set("i", "<leader>jk", "<ESC>", { desc = "exit insert mode" })
 keymap.set("i", "<leader>kj", "<ESC>", { desc = "exit insert mode" })
@@ -41,16 +41,17 @@ keymap.set("n", "<leader>[", function()
     require("treesitter-context").go_to_context(vim.v.count1)
 end, { silent = true })
 
-vim.keymap.set("n", "<leader>fd", function()
+keymap.set("n", "<leader>fd", function()
     require("telescope").extensions.neoclip.default()
 end, { silent = true, noremap = true, desc = "Open Neoclip with Telescope" })
 
-vim.keymap.set("n", "[c", function()
+keymap.set("n", "[c", function()
     require("treesitter-context").go_to_context(vim.v.count1)
 end, { silent = true })
 
-vim.keymap.set("x", "gl", "<Plug>(lion-align)", { desc = "Align text with lion (left)" }) -- Align left
-vim.keymap.set("x", "gL", "<Plug>(lion-align-right)", { desc = "Align text with lion (right)" }) -- Align right
+keymap.set("x", "gl", "<Plug>(lion-align)", { desc = "Align text with lion (left)" }) -- Align left
+keymap.set("x", "gL", "<Plug>(lion-align-right)", { desc = "Align text with lion (right)" }) -- Align right
+keymap.set("n", "<leader>a", ":Floaterminal", { desc = "Call the floating terminal from options.lua" })
 
 -- vim.keymap.set("n", "<leader>fd", function()
 --     local actions = require("telescope.actions") -- import actions

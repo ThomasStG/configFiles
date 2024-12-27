@@ -96,6 +96,7 @@ local toggle_terminal = function()
     end
 end
 vim.api.nvim_create_user_command("Floaterminal", toggle_terminal, {})
+
 --local function is_oil_buffer()
 --    -- Check if the current buffer is an Oil buffer
 --    return vim.bo.filetype == "oil"

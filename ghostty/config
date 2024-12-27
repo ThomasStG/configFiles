@@ -1,0 +1,3 @@
+quit-after-last-window-closed = true
+font-family =  hack-nerd-font
+theme = iterm2 Dark Background 
