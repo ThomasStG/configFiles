@@ -1,0 +1,22 @@
+
+backend_type = "Sqlite"
+scroll_per_page = 5
+sync_os_clipboard = true
+history_limit = 10
+colored_tags = true
+datum_visibility = "show"
+app_state_dir = "/Users/thomas/Library/Application Support/tui-journal"
+
+[export]
+show_confirmation = true
+
+[external_editor]
+command = "nvim"
+auto_save = false
+
+[json_backend]
+file_path = "/Users/thomas/Documents/tui-journal/entries.json"
+
+[sqlite_backend]
+file_path = "/Users/thomas/Documents/tui-journal/entries.db"
+

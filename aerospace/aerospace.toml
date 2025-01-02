@@ -24,7 +24,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 accordion-padding = 30
 
 # Possible values: tiles|accordion
-default-root-container-layout = 'accordion'
+default-root-container-layout = 'tiles'
 
 # Possible values: horizontal|vertical|auto
 # 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
@@ -94,7 +94,7 @@ outer.right =      10
 # '''
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-alt-slash = 'layout tiles horizontal vertical'
+alt-slash = 'layout tiles horizontal horizontal'
 alt-comma = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
@@ -121,8 +121,9 @@ ctrl-2 = 'workspace 2'
 ctrl-3 = 'workspace 3'
 ctrl-7 = 'workspace 7'
 ctrl-9 = 'workspace 9'
-ctrl-c = 'workspace C'
+ctrl-0 = 'workspace 0'
 ctrl-s = 'workspace S'
+ctrl-esc = 'workspace D'
 ctrl-x = 'workspace X'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -131,8 +132,9 @@ ctrl-shift-2 = 'move-node-to-workspace 2'
 ctrl-shift-3 = 'move-node-to-workspace 3'
 ctrl-shift-7 = 'move-node-to-workspace 7'
 ctrl-shift-9 = 'move-node-to-workspace 9'
-ctrl-shift-c = 'move-node-to-workspace C'
+ctrl-shift-0 = 'move-node-to-workspace 0'
 ctrl-shift-s = 'move-node-to-workspace S'
+ctrl-shift-esc = 'move-node-to-workspace D'
 ctrl-shift-x = 'move-node-to-workspace X'
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 ctrl-tab = 'workspace-back-and-forth'
@@ -161,3 +163,7 @@ ctrl-shift-l = ['join-with right', 'mode main']
 down = 'volume down'
 up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace S'
