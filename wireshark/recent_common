@@ -6,22 +6,30 @@
 
 ######## Recent capture files (latest last), cannot be altered through command line ########
 
+recent.capture_file: /Users/thomas/OneDrive-SNHU/25SPDAY/CS305/ping.pcapng
 
 ######## Recent capture filters (latest last), cannot be altered through command line ########
 
 
 ######## Recent display filters (latest last), cannot be altered through command line ########
 
+recent.display_filter: ftp
+recent.display_filter: ip.addr == 142.250.81.228
+recent.display_filter: ip.addr == 128.119.245.12
+recent.display_filter: tls
+recent.display_filter: sll
+recent.display_filter: http3
+recent.display_filter: http2
 recent.display_filter: dns
 recent.display_filter: http
 recent.display_filter: icmp
 
 # Main window geometry.
 # Decimal numbers.
-gui.geometry_main_x: 146
-gui.geometry_main_y: 40
-gui.geometry_main_width: 1574
-gui.geometry_main_height: 974
+gui.geometry_main_x: 869
+gui.geometry_main_y: 48
+gui.geometry_main_width: 849
+gui.geometry_main_height: 972
 
 # Main window maximized.
 # TRUE or FALSE (case-insensitive).
@@ -69,6 +77,15 @@ gui.search_case_sensitive: FALSE
 # Find packet search type.
 # One of: DISPLAY_FILTER, HEX_VALUE, STRING, REGEX
 gui.search_type: DISPLAY_FILTER
+
+# Geometry and maximized state of PacketDialog window.
+# Decimal integers.
+gui.geom.PacketDialog.x: 171
+gui.geom.PacketDialog.y: 132
+gui.geom.PacketDialog.width: 1366
+gui.geom.PacketDialog.height: 768
+# TRUE or FALSE (case-insensitive).
+gui.geom.PacketDialog.maximized: FALSE
 
 # Custom colors.
 # List of custom colors selected in Qt color picker.

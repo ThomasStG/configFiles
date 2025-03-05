@@ -1,0 +1,49 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "base_keymap": "VSCode",
+  "vim_mode": true,
+  "telemetry": {
+    "metrics": false
+  },
+  "ui_font_size": 14,
+  "buffer_font_size": 13,
+  "theme": {
+    "mode": "system",
+    "light": "Tokyo Night Light",
+    "dark": "Tokyo Night Storm"
+  },
+  "multi_cursor_modifier": "cmd_or_ctrl",
+  "calls": {
+    // Join calls with the microphone live by default
+    "mute_on_join": true,
+    // Share your project when you are the first to join a channel
+    "share_on_join": true
+  },
+  "relative_line_numbers": true,
+  "tabs": {
+    "git_status": true
+  },
+  "buffer_font_family": "Hack Nerd Font",
+  "font_size": 7,
+  "project_panel": {
+    // Whether to show the project panel button in the status bar
+    "button": true,
+    // Default width of the project panel.
+    "default_width": 240,
+    // Where to dock the project panel. Can be 'left' or 'right'.
+    "dock": "right",
+    // Spacing between worktree entries in the project panel. Can be 'comfortable' or 'standard'.
+    "entry_spacing": "standard",
+    "auto_fold_dirs": false
+  }
+}

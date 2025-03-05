@@ -13,6 +13,7 @@ show_confirmation = true
 [external_editor]
 command = "nvim"
 auto_save = false
+temp_file_extension = "md"
 
 [json_backend]
 file_path = "/Users/thomas/Documents/tui-journal/entries.json"

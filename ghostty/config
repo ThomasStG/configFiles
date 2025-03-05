@@ -1,3 +1,7 @@
 quit-after-last-window-closed = true
 font-family =  hack-nerd-font
-theme = iterm2 Dark Background 
+theme = Monokai Pro Octagon
+macos-titlebar-style = hidden
+clipboard-write = allow
+shell-integration = zsh
+background-opacity = 0.7

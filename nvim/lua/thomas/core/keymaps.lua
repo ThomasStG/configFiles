@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
-
+keymap.set("n", "x", '"_x', { desc = "Delete char without yanking" })
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
@@ -49,10 +49,33 @@ keymap.set("n", "[c", function()
     require("treesitter-context").go_to_context(vim.v.count1)
 end, { silent = true })
 
+keymap.set("n", "<leader>mf", ":lua require('harpoon.mark').add_file()")
+keymap.set("n", "<leader>mm", ":lua require('harpoon.ui').toggle_quick_menu()")
+keymap.set("n", "<leader>md", ":lua require('harpoon.ui').nav_next()")
+keymap.set("n", "<leader>mu", ":lua require('harpoon.ui').nav_prev()")
+
+keymap.set("n", "<leader>gg", "<cmd>Gen<CR>", { desc = "Run gen.nvim with built in model" })
+keymap.set("n", "<leader>gc", "<cmd>Gen Chat<CR>", { desc = "Open Chat with gen.nvim" })
+keymap.set("x", "<leader>gg", ":'<,'>Gen<CR>", { desc = "Open menu with highlighted selected as parameter" })
+
 keymap.set("x", "gl", "<Plug>(lion-align)", { desc = "Align text with lion (left)" }) -- Align left
 keymap.set("x", "gL", "<Plug>(lion-align-right)", { desc = "Align text with lion (right)" }) -- Align right
 keymap.set("n", "<leader>a", ":Floaterminal", { desc = "Call the floating terminal from options.lua" })
 
+keymap.set("n", "<leader>ee", ":CodeCompanion<CR>", { desc = "open codecompanion" })
+keymap.set("n", "<leader>ec", ":CodeCompanionChat<CR>", { desc = "open codecompanion code" })
+keymap.set("n", "<leader>ea", ":CodeCompanionActions<CR>", { desc = "open codecompanion actions" })
+keymap.set("v", "<leader>ee", ":'<,'>CodeCompanion<CR>", { desc = "pass highlighted section to codecompanion" })
+
+keymap.set("n", "<BS>", "^", { desc = "go to start of line" })
+keymap.set("n", "<leader>.", ":TransparentToggle<cr>", { noremap = true, silent = true, desc = "Toggle Transparency" })
+keymap.set("n", "<leader>of", function()
+    local file = vim.fn.expand("%:p") -- Get full path of the current file
+    vim.cmd("!code " .. file .. " &") -- Open in VS Code (runs in background)
+end, { desc = "Open current file in VS Code" })
+keymap.set("n", "<leader>oF", function()
+    vim.cmd("!code . &") -- Open in VS Code (runs in background)
+end, { desc = "Open current project in VS Code" })
 -- vim.keymap.set("n", "<leader>fd", function()
 --     local actions = require("telescope.actions") -- import actions
 --     local action_state = require("telescope.actions.state") -- import action_state

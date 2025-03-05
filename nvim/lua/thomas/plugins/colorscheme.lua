@@ -8,7 +8,7 @@ return {
         local bg_search = "#1A64AC"
         local bg_visual = "#275379"
         local fg = "#CBE1F0"
-        local fg_dark = "#B5D0E9"
+        local fg_dark = "#B5D0A9"
         local fg_gutter = "#628E97"
         local border = "#547999"
 

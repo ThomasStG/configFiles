@@ -1,22 +1,58 @@
-general.import = [
-    "~/.config/alacritty/themes/themes/coolnight.toml"
-]
-terminal.shell.program = "/bin/zsh"
-[ env ]
-TERM = "xterm-256color"
-[window]
-padding.x = 10
-padding.y = 10
 
-[window.dimensions]
-columns = 164  # Set the default number of columns
-lines = 40     # Set the default number of lines
+[[keyboard.bindings]]
+action = "Quit"
+key = "Q"
+mods = "Command"
 
+[general]
+live_config_reload = true
 
+[terminal]
+[colors.primary]
+background = "#2e2a31"  # bg
+foreground = "#f8f8f2"  # fg
+
+[colors.normal]
+black   = "#2e2a31"  # bg+1
+red     = "#ff6188"  # red
+green   = "#a9dc76"  # green
+yellow  = "#ffd866"  # yellow
+blue    = "#fc9867"  # blue
+magenta = "#ab9df2"  # purple
+cyan    = "#78dce8"  # orig-cyan
+white   = "#f8f8f2"  # fg-1
+
+[colors.bright]
+black   = "#727072"  # bg+2
+red     = "#ff6188"  # orig-red
+green   = "#a9dc76"  # orig-green
+yellow  = "#ffd866"  # orig-yellow
+blue    = "#fc9867"  # orig-blue
+magenta = "#ab9df2"  # orig-violet
+cyan    = "#78dce8"  # cyan
+white   = "#ffffff"  # white
+
+[colors.cursor]
+text = "#2e2a31"  # Cursor text
+cursor = "#fc9867"  # Cursor color
+
+[colors.selection]
+text = "#f8f8f2"  # Selected text color
+background = "#403e41"  # Selection background (fg-3)
 
 [font]
-normal.family = "MesloLGS Nerd Font Mono"
-
-#regular
 size = 12
 
+[font.normal]
+family = "Hack Nerd Font"
+
+[terminal.shell]
+program = "/bin/zsh"
+
+[window]
+startup_mode = "Windowed"
+decorations = "buttonless"
+opacity = 0.7
+class = { instance = "alacritty", general = "Alacritty" }
+
+[keyboard]

@@ -23,17 +23,8 @@ return {
         require("telescope").load_extension("projects")
 
         -- Optional integration with nvim-tree
-        require("nvim-tree").setup({
-            sync_root_with_cwd = true,
-            respect_buf_cwd = true,
-            update_focused_file = {
-                enable = true,
-                update_root = true,
-            },
-        })
 
         -- Keymap for opening projects with Telescope
         vim.keymap.set("n", "<leader>pr", "<cmd>Telescope projects<CR>", { desc = "Open projects" })
     end,
 }
-

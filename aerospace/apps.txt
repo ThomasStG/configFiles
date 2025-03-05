@@ -1,0 +1,12 @@
+657 | com.mitchellh.ghostty          | Ghostty
+659 | com.hnc.Discord                | Discord
+661 | com.operasoftware.OperaGX      | Opera GX
+678 | com.microsoft.Outlook          | Microsoft Outlook
+684 | com.spotify.client             | Spotify
+701 | com.flexibits.fantastical2.mac | Fantastical
+705 | md.obsidian                    | Obsidian
+724 | com.todoist.mac.Todoist        | Todoist
+732 | com.todesktop.230313mzl4w4u92  | Cursor
+745 | com.apple.MobileSMS            | Messages
+750 | com.microsoft.Word             | Microsoft Word
+765 | com.apple.finder               | Finder

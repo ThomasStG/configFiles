@@ -8,6 +8,7 @@ return {
         "nvim-tree/nvim-web-devicons",
         "folke/todo-comments.nvim",
         "folke/trouble.nvim", -- Ensure trouble.nvim is included in the dependencies
+        "ThePrimeagen/harpoon",
     },
     config = function()
         local telescope = require("telescope")
@@ -54,6 +55,7 @@ return {
         -- Load extensions
         telescope.load_extension("undo")
         telescope.load_extension("fzf")
+        telescope.load_extension("harpoon")
 
         -- Keymaps
         local keymap = vim.keymap -- for conciseness

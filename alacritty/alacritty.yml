@@ -1,0 +1,44 @@
+window:
+  opacity: 0.7
+  decorations: buttonless # Hides titlebar similar to Ghostty's `macos-titlebar-style = hidden`
+
+font:
+  normal:
+    family: "Hack Nerd Font"
+  size: 12 # Adjust as needed
+
+colors:
+  # Monokai Pro Octagon (Closest match)
+  primary:
+    background: "#2d2a2e"
+    foreground: "#fcfcfa"
+  cursor:
+    text: "#2d2a2e"
+    cursor: "#fcfcfa"
+  normal:
+    black: "#2d2a2e"
+    red: "#ff6188"
+    green: "#a9dc76"
+    yellow: "#ffd866"
+    blue: "#78dce8"
+    magenta: "#ab9df2"
+    cyan: "#a1efe4"
+    white: "#fcfcfa"
+  bright:
+    black: "#727072"
+    red: "#ff6188"
+    green: "#a9dc76"
+    yellow: "#ffd866"
+    blue: "#78dce8"
+    magenta: "#ab9df2"
+    cyan: "#a1efe4"
+    white: "#ffffff"
+
+shell:
+  program: /bin/zsh
+
+live_config_reload: true # Allows changes without restart
+
+key_bindings:
+  - { key: Q, mods: Command, action: Quit } # Quit Alacritty with Cmd+Q
+  - { key: R, mods: Control|Shift, action: ReloadConfig }
