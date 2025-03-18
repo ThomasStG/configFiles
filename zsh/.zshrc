@@ -6,6 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 export NODE_PATH='/usr/local/lib/node_modules';
+export EDITOR='nvim'
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
 export MAMBA_EXE="/Users/thomas/.micromamba/bin/micromamba";
@@ -83,6 +84,7 @@ alias textbook="open T.pdf"
 alias v="nvim"
 alias pyvenv="~/PersonalProjects/python-venv.sh"
 alias browse="links"
+alias t="tmuxinator"
 
 source ~/.config/zsh/spotify.zsh
 

@@ -18,6 +18,7 @@ return {
                 -- Set to true if you never want completions to be shown automatically.
                 manual = false,
                 -- A mapping of filetype to true or false, to enable virtual text.
+                disabled_filetypes = { "markdown" },
                 filetypes = {},
                 -- Whether to enable virtual text of not for filetypes not specifically listed above.
                 default_filetype_enabled = true,

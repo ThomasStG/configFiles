@@ -7,15 +7,17 @@ return {
     config = function()
         require("neoclip").setup({
             history = 1000,
-            enable_persistent_history = false,
-            length_limit = 1048576,
-            continuous_sync = false,
+            enable_persistent_history = true,
+            continuous_sync = true,
             db_path = vim.fn.stdpath("data") .. "/databases/neoclip.sqlite3",
             filter = nil,
             preview = true,
             prompt = nil,
-            default_register = "unnamedplus",
+            enable_system_clipboard = true,
+            default_register = { '"', "+", "*" },
             default_register_macros = "q",
+            dedent_picker_display = true,
+            initial_mode = "normal",
             enable_macro_history = true,
             content_spec_column = false,
             disable_keycodes_parsing = false,
@@ -66,6 +68,27 @@ return {
                     custom = {},
                 },
             },
+
+            vim.api.nvim_create_autocmd("TextYankPost", {
+                pattern = "*",
+                callback = function()
+                    local ok, neoclip = pcall(require, "neoclip")
+                    if not ok or not neoclip.storage then
+                        return
+                    end
+
+                    local clipboard_content = vim.fn.getreg("+") -- Read system clipboard
+                    if clipboard_content ~= "" then
+                        pcall(function()
+                            neoclip.storage.add({
+                                register = { "+", "*", '"' }, -- Track system & default registers
+                                contents = { clipboard_content },
+                                filetype = "plaintext",
+                            })
+                        end)
+                    end
+                end,
+            }),
         })
         -- --Load Telescope extension
         require("telescope").load_extension("neoclip")

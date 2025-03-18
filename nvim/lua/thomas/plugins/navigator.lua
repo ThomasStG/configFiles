@@ -1,3 +1,4 @@
+-- Navigate tmux panes from neovim
 return {
     "numToStr/Navigator.nvim",
     lazy = true,

@@ -13,6 +13,7 @@ recent.capture_file: /Users/thomas/OneDrive-SNHU/25SPDAY/CS305/ping.pcapng
 
 ######## Recent display filters (latest last), cannot be altered through command line ########
 
+recent.display_filter: udp
 recent.display_filter: ftp
 recent.display_filter: ip.addr == 142.250.81.228
 recent.display_filter: ip.addr == 128.119.245.12
@@ -22,18 +23,17 @@ recent.display_filter: http3
 recent.display_filter: http2
 recent.display_filter: dns
 recent.display_filter: http
-recent.display_filter: icmp
 
 # Main window geometry.
 # Decimal numbers.
-gui.geometry_main_x: 869
-gui.geometry_main_y: 48
-gui.geometry_main_width: 849
-gui.geometry_main_height: 972
+gui.geometry_main_x: 1
+gui.geometry_main_y: 39
+gui.geometry_main_width: 1726
+gui.geometry_main_height: 988
 
 # Main window maximized.
 # TRUE or FALSE (case-insensitive).
-gui.geometry_main_maximized: FALSE
+gui.geometry_main_maximized: TRUE
 
 # Leftalign Action Buttons.
 # TRUE or FALSE (case-insensitive).

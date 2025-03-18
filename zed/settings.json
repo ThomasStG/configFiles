@@ -22,6 +22,10 @@
     "light": "Tokyo Night Light",
     "dark": "Tokyo Night Storm"
   },
+  "icon_theme": {
+    "light": "Hack Nerd Font",
+    "dark": "Hack Nerd Font"
+  },
   "multi_cursor_modifier": "cmd_or_ctrl",
   "calls": {
     // Join calls with the microphone live by default

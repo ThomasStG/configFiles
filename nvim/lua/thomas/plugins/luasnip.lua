@@ -3,4 +3,5 @@ return {
     config = function()
         require("luasnip").setup()
     end,
+    build = "make install_jsregexp",
 }

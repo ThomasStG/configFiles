@@ -5,7 +5,7 @@ return {
         require("leap").setup({
             case_sensitive = false, -- Enable/disable case sensitivity
         })
-        vim.keymap.set("n", "<leader>l", "<Plug>(leap)")
+        vim.keymap.set("n", "<leader>le", "<Plug>(leap)")
         vim.keymap.set("n", "<leader>lw", "<Plug>(leap-from-window)")
         vim.keymap.set({ "x", "o" }, "<leader>L", "<Plug>(leap-backward)")
         -- Define equivalence classes for brackets and quotes, in addition to

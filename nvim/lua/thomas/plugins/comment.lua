@@ -16,7 +16,7 @@ return {
             sticky = true, -- Keeps the cursor in its position after commenting
             ignore = "^$", -- lines to ignore when commenting
             toggler = {
-                line = "gcc", -- Keymap for toggling line comments
+                line = "gcc", -- keymap for toggling line comments
                 block = "gbc", -- Keymap for toggling block comments
             },
             opleader = {
