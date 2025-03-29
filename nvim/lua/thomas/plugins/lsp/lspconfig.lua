@@ -147,6 +147,19 @@ return {
                     cmd = { "clangd", "--background-index", "--clang-tidy", "--header-insertion=never" },
                 })
             end,
+
+            ["arduino_language_server"] = function()
+                lspconfig["arduino_language_server"].setup({
+                    capabilities = capabilities,
+                    cmd = {
+                        "arduino-language-server",
+                        "-cli-config",
+                        "/path/to/arduino-cli.yaml",
+                        "-fqbn",
+                        "arduino:avr:uno",
+                    },
+                })
+            end,
             ["angularls"] = function()
                 lspconfig["angularls"].setup({
                     capabilities = capabilities,

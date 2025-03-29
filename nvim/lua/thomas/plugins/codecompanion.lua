@@ -11,7 +11,7 @@ return {
                 adapter = "ollama",
             },
             inline = {
-                adapter = "ollama",
+                --                adapter = "ollama",
                 keymaps = {
                     accept_change = {
                         modes = { n = "<leader>a" },

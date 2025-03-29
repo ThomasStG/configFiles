@@ -38,6 +38,7 @@ return {
                 "eslint",
                 "biome",
                 "texlab",
+                "arduino_language_server",
                 "marksman",
             },
             automatic_installation = true,

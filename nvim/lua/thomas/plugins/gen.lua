@@ -6,6 +6,7 @@ return {
         quit_map = "q", -- set keymap to close the response window
         retry_map = "<c-r>", -- set keymap to re-send the current prompt
         accept_map = "<c-b>", -- set keymap to replace the previous selection with the last result
+        accept_keymap = "<C-l>",
         host = "localhost", -- The host running the Ollama service.
         port = "11434", -- The port on which the Ollama service is listening.
         display_mode = "split", -- The display mode. Can be "float" or "split" or "horizontal-split".

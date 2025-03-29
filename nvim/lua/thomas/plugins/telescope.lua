@@ -9,6 +9,8 @@ return {
         "folke/todo-comments.nvim",
         "folke/trouble.nvim", -- Ensure trouble.nvim is included in the dependencies
         "ThePrimeagen/harpoon",
+        "mfussenegger/nvim-dap",
+        "nvim-telescope/telescope-dap.nvim",
     },
     config = function()
         local telescope = require("telescope")
@@ -16,6 +18,7 @@ return {
         local transform_mod = require("telescope.actions.mt").transform_mod
         local trouble = require("trouble")
         local trouble_telescope = require("trouble.sources.telescope")
+        require("telescope").load_extension("dap")
 
         -- Custom action for quickfix list
         local custom_actions = transform_mod({
@@ -65,5 +68,12 @@ return {
         keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
         keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
         keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+
+        vim.api.nvim_set_keymap(
+            "n",
+            "<leader>dc",
+            "<cmd>Telescope dap configurations<CR>",
+            { noremap = true, silent = true }
+        )
     end,
 }

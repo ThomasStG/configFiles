@@ -35,10 +35,22 @@ return {
                 accept_fallback = nil,
                 -- Key bindings for managing completions in virtual text mode.
                 --
-
-                vim.keymap.set("i", "<C-Space>", function()
-                    return require("codeium").accept()
-                end, { expr = true, silent = true }),
+                --
+                -- set the keybindings here
+                key_bindings = {
+                    -- Accept the current completion.
+                    accept = "<C-l>",
+                    -- Accept the next word.
+                    accept_word = false,
+                    -- Accept the next line.
+                    accept_line = false,
+                    -- Clear the virtual text.
+                    clear = false,
+                    -- Cycle to the next completion.
+                    next = "<C-]>",
+                    -- Cycle to the previous completion.
+                    prev = "<C-[>",
+                },
             },
         })
     end,

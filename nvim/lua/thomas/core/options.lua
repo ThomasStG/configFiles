@@ -98,14 +98,6 @@ local toggle_terminal = function()
 end
 vim.api.nvim_create_user_command("Floaterminal", toggle_terminal, {})
 
-local cmp = require("cmp")
-
-cmp.setup({
-    sources = {
-        { name = "codecompanion" }, -- Add codecompanion as a source
-        -- other sources like buffer, path, etc., if needed
-    },
-})
 
 vim.g.copilot_enabled = false
 vim.g.copilot_no_tab_map = true

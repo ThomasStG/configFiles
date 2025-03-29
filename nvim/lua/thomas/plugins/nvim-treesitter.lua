@@ -1,14 +1,23 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" }, -- Load when opening files
     dependencies = {
-        "nvim-treesitter/nvim-treesitter-context",
-        "nvim-treesitter/nvim-treesitter-textobjects",
+        "windwp/nvim-ts-autotag",
     },
+    build = ":TSUpdate",
+    lazy = false,
+    priority = 1000, -- Ensure it loads early
     config = function()
         require("nvim-treesitter.configs").setup({
-            ensure_installed = { "lua", "html", "javascript", "typescript", "tsx", "vue", "svelte" },
+            ensure_installed = {
+                "lua",
+                "html",
+                "javascript",
+                "typescript",
+                "tsx",
+                "css",
+                "markdown",
+                "markdown_inline",
+            },
             highlight = { enable = true },
             indent = { enable = true },
         })
