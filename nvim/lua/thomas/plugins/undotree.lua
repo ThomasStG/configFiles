@@ -17,7 +17,7 @@ return {
 
         -- Set keymaps for undotree
         local keymap = vim.keymap -- for conciseness
-        keymap.set("n", "<leader>,", vim.cmd.UndotreeToggle)
+        keymap.set("n", "<leader>t", vim.cmd.UndotreeToggle)
         -- Optional settings
         vim.g.undotree_SetFocusWhenToggle = 1 -- Automatically focus the undo tree window when toggled
     end,

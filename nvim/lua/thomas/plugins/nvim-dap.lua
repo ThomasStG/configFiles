@@ -14,7 +14,7 @@ return {
         -- Mason Setup
         require("mason").setup()
         require("mason-nvim-dap").setup({
-            ensure_installed = { "codelldb", "python", "js-debug-adapter", "delve" }, -- Add required adapters
+            ensure_installed = { "codelldb", "python", "js-debug-adapter" }, -- Add required adapters
             automatic_setup = true, -- Automatically configure installed debuggers
         })
 
