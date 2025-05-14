@@ -4,4 +4,4 @@ theme = Monokai Pro Octagon
 macos-titlebar-style = hidden
 clipboard-write = allow
 shell-integration = zsh
-background-opacity = 1
+background-opacity = .98

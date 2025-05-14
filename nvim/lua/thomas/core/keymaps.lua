@@ -54,6 +54,7 @@ keymap.set("x", "<leader>gg", ":'<,'>Gen<CR>", { desc = "Open menu with highligh
 
 keymap.set("x", "gl", "<Plug>(lion-align)", { desc = "Align text with lion (left)" }) -- Align left
 keymap.set("x", "gL", "<Plug>(lion-align-right)", { desc = "Align text with lion (right)" }) -- Align right
+
 keymap.set("n", "<leader>ot", ":Floaterminal<CR>", { desc = "Call the floating terminal from options.lua" })
 
 keymap.set("n", "<leader>ee", ":CodeCompanion<CR>", { desc = "open codecompanion" })

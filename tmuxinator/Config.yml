@@ -1,0 +1,14 @@
+name: Config
+root: ~/.config
+
+windows:
+  - editor:
+      layout: even-vertical
+      panes:
+        - nvim .
+        -
+  - nvim:
+      root: ~/.config/nvim/lua/thomas/
+      layout: even-vertical
+      panes: -nvim .
+        -

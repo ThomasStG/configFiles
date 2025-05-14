@@ -49,6 +49,11 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+right_arrow() {
+    zle forward-char
+}
+zle -N right_arrow
+bindkey "^O" right_arrow
 # Bind Vim-like keys for menu navigation once the menuselect keymap is available
 zsh-defer autoload -U zsh/terminfo  # Load terminal info for key bindings to work
 
