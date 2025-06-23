@@ -6,21 +6,30 @@ alias acu='ac && alu'
 alias gitc="git -h"
 alias runc="build_and_run_cpp"
 alias vimfz="fzf --tmux 80% --bind 'enter:become(nvim {})'"            # Center, 80% width and height
-alias v="nvim"
+alias v="nvim ./"
 alias pyvenv="~/PersonalProjects/python-venv.sh"
 alias browse="links"
-alias t="tmuxinator"
+alias tm="tmuxinator"
 alias ts="tmuxinator start"
 alias game="rungame"
 alias reconnect="reconnect"
 alias attach="tmuxattach"
-alias cd="z"
 alias g="bit"
+alias mysql='/usr/local/mysql/bin/mysql -u root -p'
+alias c="z"
+alias t="todo.sh"
+alias mpcrp="resave_playlist"
+alias mpcmp="make_playlist"
+alias cheat="cheat"
+alias weather="curl wttr.in/bow+NH"
+
+
 
 # Define your list of commands
 games=(
     "bastet"
     "typioca"
+    "ttyper"
     "nethack"
     "nsnake"
     "ttysolitaire"
@@ -47,4 +56,21 @@ function reconnect() {
 
 function build_and_run_cpp(){
   g++ -std=c++20 -o ${1%.*} "$1" && ./${1%.*}
+}
+
+function resave_playlist() {
+  mpc rm "$1"
+  mpc clear
+  mpc add "$2"
+  mpc save "$1"
+}
+
+function make_playlist() {
+  mpc clear
+  mpc add "$1"
+  mpc save "$2"
+}
+
+function cheat() {
+  curl cheat.sh/"$1"
 }

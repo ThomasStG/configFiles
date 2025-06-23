@@ -197,7 +197,7 @@
 
 # pwd.sh {
 	# Maximum length of output.
-	export TMUX_POWERLINE_SEG_PWD_MAX_LEN="40"
+	export TMUX_POWERLINE_SEG_PWD_MAX_LEN="80"
 # }
 
 # time.sh {
@@ -270,7 +270,7 @@
 # vcs_rootpath.sh {
 	# Display mode for vcs_rootpath.
 	# Example: (name: folder name only; path: full path, w/o expansion; user_path: full path, w/ tilde expansion)
-	# export TMUX_POWERLINE_SEG_VCS_ROOTPATH_MODE="name"
+	export TMUX_POWERLINE_SEG_VCS_ROOTPATH_MODE="user_path"
 # }
 
 # vcs_staged.sh {

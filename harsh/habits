@@ -6,11 +6,11 @@
 # 0 is for tracking a habit. 0 frequency habits will not warn or score.
 # Examples:
 
-Gymmed: 3/7
+Gymmed: 4/7
 Bed by midnight: 1
 Cleaned House: 7
 Called Mom: 7
 Tracked Finances: 15
-New Skill: 90
+New Skill: 0
 Too much coffee: 0
-Used harsh: 0
+Worked on a project: 6/7

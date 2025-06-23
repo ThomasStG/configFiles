@@ -13,4 +13,13 @@ return {
             desc = "Create a selection for selected text or word under the cursor",
         },
     },
+    config = function()
+        require("multicursors").setup({
+            hint = {
+                float_opts = {
+                    border = "rounded",
+                },
+            },
+        })
+    end,
 }

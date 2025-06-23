@@ -1,5 +1,5 @@
 if [[ ! -f ~/.config/zsh/.zshrc.zwc || ~/.config/zsh/.zshrc -nt ~/.config/zsh/.zshrc.zwc ]]; then
-    zcompile ~/.zshrc ~/.zshrc.zwc
+    zcompile ~/.config/zsh/.zshrc ~/.config/zsh.zshrc.zwc
 fi
 autoload -Uz compinit
 if [[ -n "$HOME/.zcompdump" && -f "$HOME/.zcompdump" ]]; then
@@ -20,14 +20,17 @@ export NVM_DIR="$HOME/.nvm"
 PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-alias mysql='/usr/local/mysql/bin/mysql -u root -p'
+export TMUX_POWERLINE_STATUS_LEFT_LENGTH="60"
+export TMUX_POWERLINE_STATUS_RIGHT_LENGTH="90"
+export TODO_DB_PATH=$HOME/.config/td/todo.json
+export PATH="$PYENV_ROOT/bin:$PATH:/Users/thomas/.cargo/bin"
 export NODE_PATH='/usr/local/lib/node_modules';
 export EDITOR='nvim'
 export STM32_PRG_PATH=/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin
 export FZF_DEFAULT_OPTS="--bind 'esc:toggle-preview'"
-export LC_ALL=en_IN.UTF-8
-export LANG=en_IN.UTF-8
+export tree_user_command="eza --tree --level=1 --group-directories-first --no-permissions --git --ignore-glob='node_modules|\.DS_Store|\.localized|\.CFUserTextEncoding|.*-lock\.json|\.lesshst|.*_history|.*_histfile' --color=always --no-filesize --icons=always --no-time"
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 export NVM_DIR="$HOME/.nvm"
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -38,10 +41,11 @@ fi
 source ~/.zsh-defer/zsh-defer.plugin.zsh
 
 zstyle ':completion:*' menu select
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} ma=0\;33
 zstyle ':completion:*' list-rows-first true
 zstyle ':completion:*' select-prompt '%SScrolling: %p/%l%s'
 zmodload zsh/complist
+bindkey '\e[Z' reverse-menu-complete
 
 # use the vi navigation keys in menu completion
 bindkey -M menuselect '^[' send-break
@@ -56,6 +60,7 @@ zle -N right_arrow
 bindkey "^O" right_arrow
 # Bind Vim-like keys for menu navigation once the menuselect keymap is available
 zsh-defer autoload -U zsh/terminfo  # Load terminal info for key bindings to work
+zsh-defer autoload -U tetriscurses
 
 HISTFILE=$HOME/.zhistory
 SAVEHIST=5000
@@ -73,6 +78,7 @@ bindkey "${terminfo[kcuu1]}" history-beginning-search-backward
 bindkey "${terminfo[kcud1]}" history-beginning-search-forward
 
 zsh-defer eval "$(zoxide init zsh)"
+zsh-defer eval "$(jump shell)"
 zsh-defer eval "$(thefuck --alias)"
 zsh-defer eval $(thefuck --alias FUCK)
 zsh-defer eval $(thefuck --alias f)

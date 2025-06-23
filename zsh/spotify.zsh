@@ -16,15 +16,26 @@ function toggle_spotify_shuffle() {
 alias ss="toggle_spotify_shuffle >/dev/null"
 
 function download_spotify() {
-  if [ -z "$3" ]; then
-    # If $3 is null, download with the second argument as the end time
-    yt-dlp --write-auto-subs -x --audio-format "mp3" --output "$HOME/SpotifyPlaylists/$2/%(title)s.mp3" "$1"
-  elif [ -z "$2" ]; then
-    # If $2 is null, download the track with the end time as $3 or the default LikedSongs folder
-    yt-dlp  --write-auto-subs --x --audio-format "mp3" --output "$HOME/SpotifyPlaylists/LikedSongs/%(title)s.mp3" "$1"
+  local url="$1"
+  local start_time="$2"
+  local end_time="$3"
+
+  if [ -z "$end_time" ] && [ -z "$start_time" ]; then
+    # Only URL and folder provided → download full audio to that folder
+    yt-dlp --write-auto-subs -x --audio-format "mp3" \
+      --output "$HOME/Downloads/%(title)s.%(ext)s" "$url"
+
+  elif [ -z "$end_time" ] && [ -n "$start_time" ]; then
+    # URL, folder, and start_time provided → clip and save to folder
+    yt-dlp --write-auto-subs -x --audio-format "mp3" \
+      --output "$HOME/Downloads/%(title)s.%(ext)s" "$url" \
+      --downloader ffmpeg --downloader-args "ffmpeg_i:-ss $start_time"
+
   else
-    # Default case where neither $3 nor $2 is null
-    yt-dlp  --write-auto-subs --x --audio-format "mp3" --output "$HOME/SpotifyPlaylists/$2/%(title)s.mp3" "$1" --downloader ffmpeg --downloader-args "ffmpeg_i:-ss 0 -to $3"
+    # URL, folder, and end_time provided → clip and save to folder
+    yt-dlp --write-auto-subs -x --audio-format "mp3" \
+      --output "$HOME/Downloads/%(title)s.%(ext)s" "$url" \
+      --downloader ffmpeg --downloader-args "ffmpeg_i:-ss $start_time -to $end_time"
   fi
 }
 
