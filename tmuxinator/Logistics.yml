@@ -1,0 +1,25 @@
+name: Logistics
+root: ~/
+
+enable_pane_titles: true
+pane_title_position: top
+on_project_start: mpd ~/.config/mpd/mpd.conf
+
+windows:
+  - music:
+      root: ~/
+      layout: even-vertical
+      panes:
+        - ncspot
+        - rmpc
+  - todos:
+      root: ~/.todo/
+      layout: even-vertical
+      panes:
+        - td
+        - harsh log
+  - system:
+      root: ~/
+      layout: even-vertical
+      panes:
+        - htop

@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/Users/thomas/.config/sketchybar/items/parseLog.py", line 48, in <module>
+    main()
+    ~~~~^^
+  File "/Users/thomas/.config/sketchybar/items/parseLog.py", line 38, in main
+    for line in follow(logfile):
+                ~~~~~~^^^^^^^^^
+  File "/Users/thomas/.config/sketchybar/items/parseLog.py", line 21, in follow
+    time.sleep(0.2)
+    ~~~~~~~~~~^^^^^
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/thomas/.config/sketchybar/items/parseLog.py", line 48, in <module>
+    main()
+    ~~~~^^
+  File "/Users/thomas/.config/sketchybar/items/parseLog.py", line 38, in main
+    for line in follow(logfile):
+                ~~~~~~^^^^^^^^^
+  File "/Users/thomas/.config/sketchybar/items/parseLog.py", line 21, in follow
+    time.sleep(0.2)
+    ~~~~~~~~~~^^^^^
+KeyboardInterrupt
