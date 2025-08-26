@@ -6,7 +6,6 @@ return {
         local alpha = require("alpha")
         local dashboard = require("alpha.themes.dashboard")
 
-        -- change header to THOMAS
         dashboard.section.header.val = {
             "                                                     ",
             "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",

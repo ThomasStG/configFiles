@@ -12,7 +12,7 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar position=top height=30 color=0xd9282a3a corner_radius=8 y_offset=5 padding_left=5 padding_right=5 margin=5\
+sketchybar --bar position=top height=30 color=0xd9282a3a corner_radius=20 y_offset=2 padding_left=5 padding_right=5 margin=5\
 
 ##### Changing Defaults #####
 # We now change some default values, which are applied to all further items.
@@ -20,49 +20,71 @@ sketchybar --bar position=top height=30 color=0xd9282a3a corner_radius=8 y_offse
 # https://felixkratz.github.io/SketchyBar/config/items
 
 default=(
-  padding_left=5
-  padding_right=5
+  padding_left=10
+  padding_right=10
   icon.font="Hack Nerd Font:Bold:17.0"
   label.font="Hack Nerd Font:Bold:14.0"
   icon.color=0xffffffff
   label.color=0xffffffff
-  icon.padding_left=4
-  icon.padding_right=4
-  label.padding_left=4
-  label.padding_right=4
+  icon.padding_left=8
+  icon.padding_right=8
+  label.padding_left=8
+  label.padding_right=8
 )
-sketchybar --default "${default[@]}"
 
 
 ##### Adding Left Items #####
 # We add some regular items to the left side of the bar, where
 # only the properties deviating from the current defaults need to be set
 
-sketchybar --add item chevron_1 left \
-           --set chevron_1 icon= label.drawing=off \
+sketchybar --add item spacer_lefter left \
+           --set spacer_lefter label=\
+                          width=10 \
+                          drawing=on\
+           --add item chevron_1 left \
+           --set chevron_1 icon= label.drawing=off padding_left=10\
+           --add item spacer_left left \
+           --set spacer_left label=\
+                          width=10 \
+                          drawing=on\
            --add item front_app left \
-           --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
+           --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" padding_right=10\
            --subscribe front_app front_app_switched \
            --add item spacer left \
            --set spacer label=\
                           width=10 \
                           drawing=on\
            --add item weather left \
-           --set weather script="$HOME/.config/sketchybar/items/weather.sh" update_freq=600 \
+           --set weather script="$HOME/.config/sketchybar/items/weather.sh" update_freq=600 padding_left=10 padding_right=10\
            --subscribe weather system_woke \
            --add item spacer_3 left \
            --set spacer_3 label=\
                           width=10 \
                           drawing=on\
            --add item discord_unread left \
-           --set discord_unread script="$HOME/.config/sketchybar/plugins/discord_notifications.sh" update_freq=10 click_script='open -a Discord'\
+           --set discord_unread script="$HOME/.config/sketchybar/plugins/discord_notifications.sh" update_freq=10 click_script='open -a Discord' padding_left=10\
            --subscribe discord_unread front_app_switched \
+           --add item spacer_disc left \
+           --set spacer_disc label=\
+                          width=10 \
+                          drawing=on\
            --add item message_unread left \
            --set message_unread script="$HOME/.config/sketchybar/plugins/message_notifications.sh" update_freq=10 click_script='open -a Messages'\
            --subscribe message_unread front_app_switched \
+           --add item spacer_mess left \
+           --set spacer_mess label=\
+                          width=10 \
+                          drawing=on\
            --add item gmail_unread left \
-           --set gmail_unread script="$HOME/.config/sketchybar/plugins/email_notifications.sh" update_freq=10\
+           --set gmail_unread script="$HOME/.config/sketchybar/plugins/email_notifications.sh" update_freq=10 padding_right=10\
            --subscribe gmail_unread front_app_switched
+           --add item spacer_gmail left \
+           --set spacer_gmail label=\
+                          width=10 \
+                          drawing=on\
+           --add item calendar left \
+           --set calendar script="$HOME/.config/sketchybar/items.calendar.sh" update_freq=60 padding_right=10\
+           --subscribe calendar front_app_switched
 
 
 ##### Adding Right Items #####
@@ -78,35 +100,55 @@ sketchybar --add item chevron_1 left \
 
 
 sketchybar --add item clock right \
-           --set clock update_freq=10 icon= script="$PLUGIN_DIR/clock.sh" \
-           \
+           --set clock update_freq=10 icon= script="$PLUGIN_DIR/clock.sh" padding_right=10\
+           --add item spacer_time right \
+           --set spacer_time label=\
+                          width=10 \
+                          drawing=on\
            --add item battery right \
-           --set battery update_freq=120 padding_right=0 script="$PLUGIN_DIR/battery.sh" \
-           --subscribe battery system_woke power_source_change \
+           --set battery update_freq=120 padding_right=0 script="$PLUGIN_DIR/battery.sh" padding_left=10\
+           --add item spacer_bat right \
+           --set spacer_bat label=\
+                          width=10 \
+                          drawing=on\
+
+# Pomodoro display
+sketchybar --add item pomodoro right padding_right=10
+sketchybar --set pomodoro script="$PLUGIN_DIR/pomodoro.py" padding_right=10\
+                         label="Pomodoro" \
+                         icon="󰄉" \
+                         update_freq=1 \
+                         click_script="/usr/bin/env python3 $PLUGIN_DIR/pomodoro.py toggle"
+
+sketchybar --add bracket pomodoro_popup
+sketchybar --set pomodoro_popup \
+  popup.horizontal=on \
+  background.color=0xff1c421d \
+  background.corner_radius=9 \
+  background.height=21 \
+  background.padding_left=11 \
+  background.padding_right=11
+
+# Controller button
+sketchybar --add item pomodoro_controller right
+sketchybar --set pomodoro_controller icon="󰍔" padding_left=10 padding_right=10\
+                                     label="⋮" \
+                                     click_script="/usr/bin/env python3 $PLUGIN_DIR/pomodoro.py popup"
 
 sketchybar --add item nowplaying center \
-           --set nowplaying update_freq=10 icon.drawing=off script="$HOME/.config/sketchybar/items/nowplaying.sh"\
-           --set nowplaying \
-                icon=" " \
-                icon.drawing=on \
-                icon.background.image="/tmp/nowplaying.jpg" \
-                icon.background.image.scale=0.8 \
-                icon.background.image.corner_radius=4 \
-                icon.padding_right=6 \
-                icon.background.height=24 \
-                icon.background.y_offset=0 \
+          --set nowplaying update_freq=10 icon.drawing=off script="$HOME/.config/sketchybar/items/nowplaying.sh" padding_right=10 padding_left=10\
            --set chevron icon= label.drawing=off \
            --add item volume center \
-           --set volume script="$PLUGIN_DIR/volume.sh" \
+           --set volume script="$PLUGIN_DIR/volume.sh" padding_right=10\
            --subscribe volume volume_change \
 
 sketchybar --add bracket music nowplaying volume \
            --set music \
-                  background.color=0xff803e3e \
+                  background.color=0xff58568c \
                   background.corner_radius=8 \
                   background.height=20 \
-                  background.padding_left=10 \
-                  background.padding_right=10
+                  background.padding_left=20 \
+                  background.padding_right=20
 
 sketchybar --add bracket system clock battery \
            --set system \
@@ -139,5 +181,16 @@ sketchybar --add bracket message_notifications discord_unread message_unread gma
                   background.height=20 \
                   background.padding_left=10 \
                   background.padding_right=10
+
+sketchybar --add bracket pomodoro_background pomodoro pomodoro_controller \
+           --set pomodoro_background \
+                  background.color=0xff733b42 \
+                  background.corner_radius=8 \
+                  background.height=20 \
+                  background.padding_left=10 \
+                  background.padding_right=10
+
+sketchybar --hotload on
+
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update

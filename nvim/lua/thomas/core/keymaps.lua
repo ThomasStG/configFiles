@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
+pcall(vim.keymap.del, "n", "<c-y>")
+
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "x", '"_x', { desc = "Delete char without yanking" })
 
@@ -18,8 +20,8 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 
 keymap.set("n", "<leader>w", ":w<CR>", { desc = "save" })
 keymap.set("n", "<leader>q", ":q<CR>", { desc = "quit" })
-keymap.set("n", "<leader>x", ":wqa<CR>", { desc = "save and quit all" })
-keymap.set("n", "<leader>z", ":wq<CR>", { desc = "save and close  current file" })
+keymap.set("n", "<leader>x", ":wqa<CR>", { desc = "save or quit all" })
+keymap.set("n", "<leader>z", ":wq<CR>", { desc = "save or close  current file" })
 
 keymap.set("n", "<leader>y", '"*y', { desc = "copy " })
 
@@ -27,6 +29,11 @@ keymap.set("", "<up>", "<nop>", { noremap = true })
 keymap.set("", "<down>", "<nop>", { noremap = true })
 keymap.set("i", "<up>", "<nop>", { noremap = true })
 keymap.set("i", "<down>", "<nop>", { noremap = true })
+
+keymap.set("", "<left>", "<nop>", { noremap = true })
+keymap.set("", "<right>", "<nop>", { noremap = true })
+keymap.set("i", "<left>", "<nop>", { noremap = true })
+keymap.set("i", "<right>", "<nop>", { noremap = true })
 
 keymap.set("i", "<leader>jk", "<ESC>", { desc = "exit insert mode" })
 keymap.set("i", "<leader>kj", "<ESC>", { desc = "exit insert mode" })
@@ -57,10 +64,9 @@ keymap.set("x", "gL", "<Plug>(lion-align-right)", { desc = "Align text with lion
 
 keymap.set("n", "<leader>ot", ":Floaterminal<CR>", { desc = "Call the floating terminal from options.lua" })
 
-keymap.set("n", "<leader>ee", ":CodeCompanion<CR>", { desc = "open codecompanion" })
-keymap.set("n", "<leader>ec", ":CodeCompanionChat<CR>", { desc = "open codecompanion code" })
-keymap.set("n", "<leader>ea", ":CodeCompanionActions<CR>", { desc = "open codecompanion actions" })
-keymap.set("v", "<leader>ee", ":'<,'>CodeCompanion<CR>", { desc = "pass highlighted section to codecompanion" })
+keymap.set("n", "<leader>ci", function()
+    vim.cmd("Codeium Toggle")
+end, { desc = "Toggle Codeium" })
 
 keymap.set("n", "<BS>", "^", { desc = "go to start of line" })
 keymap.set("n", "<leader>.", ":TransparentToggle<cr>", { noremap = true, silent = true, desc = "Toggle Transparency" })

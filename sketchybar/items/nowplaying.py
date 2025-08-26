@@ -4,7 +4,6 @@ import socket
 import subprocess
 from pathlib import Path
 
-IMG_PATH = "/tmp/nowplaying.jpg"
 SKETCHYBAR_ITEM = "nowplaying"
 
 
@@ -35,19 +34,44 @@ def get_ncspot_song():
                 album = playable.get("album", "Unknown Album")
                 cover_url = playable.get("cover_url")
 
-                # Download album cover (if available)
-                if cover_url:
-                    try:
-                        subprocess.run(
-                            ["curl", "-s", "-o", IMG_PATH, cover_url], check=True
-                        )
-                    except subprocess.CalledProcessError:
-                        pass  # Image download failed, silently continue
-
                 return f" - {artists[0]} – {title}"
             return ""
     except (socket.timeout, json.JSONDecodeError, OSError):
         return None
+
+
+def is_rmpc_playing():
+    r = subprocess.run(["rmpc", "status"], capture_output=True, text=True)
+    lines = r.stdout.strip().splitlines()
+
+    json_line = next((line for line in lines if line.startswith("{")), None)
+    if not json_line:
+        return False
+
+    try:
+        data = json.loads(json_line)
+        return data.get("state", "").lower() == "play"
+    except json.JSONDecodeError:
+        return False
+
+
+def get_rmpc_song():
+    r = subprocess.run(["rmpc", "song"], capture_output=True, text=True)
+    lines = r.stdout.strip().splitlines()
+    json_line = next((line for line in lines if line.startswith("{")), None)
+    if not json_line:
+        return ""
+
+    try:
+        data = json.loads(json_line).get("metadata", {})
+        artist = data.get("artist", "").strip()
+        title = data.get("title", "").strip()
+        if artist or title:
+            return f" {artist} – {title}"
+        else:
+            return ""
+    except json.JSONDecodeError:
+        return ""
 
 
 def get_nowplaying_info():
@@ -69,24 +93,6 @@ def get_nowplaying_info():
     title = info.get("kMRMediaRemoteNowPlayingInfoTitle", "Unknown Title")
     artist = info.get("kMRMediaRemoteNowPlayingInfoArtist", "Unknown Artist")
     album = info.get("kMRMediaRemoteNowPlayingInfoAlbum", "Unknown Album")
-
-    # Save artwork if available
-    try:
-        art = subprocess.run(
-            [
-                "nowplaying-cli",
-                "get",
-                "kMRMediaRemoteNowPlayingInfoArtworkData",
-                "--data",
-            ],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.DEVNULL,
-        )
-        if art.returncode == 0 and art.stdout:
-            with open(IMG_PATH, "wb") as f:
-                f.write(art.stdout)
-    except Exception:
-        pass  # Ignore image errors
 
     isplaying = subprocess.run(
         ["nowplaying-cli", "get", "playbackRate"],
@@ -110,18 +116,7 @@ def is_ncspot_running():
 def update_sketchybar(label: str):
     cmd = ["sketchybar", "--set", SKETCHYBAR_ITEM, f"label={label}", "icon= "]
 
-    if Path(IMG_PATH).is_file():
-        cmd += [
-            f"background.image={IMG_PATH}",
-            "icon.drawing=on",
-            "icon.padding_right=6",
-            "icon.background.image.scale=0.8",
-            "icon.background.image.corner_radius=4",
-            "icon.background.height=24",
-            "icon.background.y_offset=0",
-        ]
-    else:
-        cmd += ["icon.drawing=off"]
+    cmd += ["icon.drawing=off"]
 
     subprocess.run(cmd)
 
@@ -130,8 +125,10 @@ def main():
     label = get_nowplaying_info()
     if not label and is_ncspot_running():
         label = get_ncspot_song()
-
-    if not label:
+    # if not label and is_rmpc_playing():
+    #     label = get_rmpc_song()
+    # if not label:
+    if label == "":
         label = "No track playing."
 
     update_sketchybar(label)

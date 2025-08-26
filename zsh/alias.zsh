@@ -24,7 +24,6 @@ alias cheat="cheat"
 alias weather="curl wttr.in/bow+NH"
 
 
-
 # Define your list of commands
 games=(
     "bastet"

@@ -18,18 +18,21 @@
 ~ │ ...w/Cellar/neovim/0.10.4_1/share/nvim/runtime/filetype.lua:35: in function <...w/Cellar/neovim/0.10.4_1/share/nvim/runtime/filetype.lua:10> │
 
     1 ┊ 1                                             │  lazy.nvim                                                                                                                                          15:13:36 │
+
     2 ~                                               │━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━│
     3 ~                                               │Failed to run config for obsidian.nvim                                                                                                                         │
     4 ~                                               │                                                                                                                                                               │
     5 ~                                               │...ocal/share/nvim/lazy/obsidian.nvim/lua/obsidian/path.lua:402: FileNotFoundError: Users/thomas/Library/Mobile Documents/iCloudmdobsidian/Documents/Personal  │
     6 ~                                               │                                                                                                                                                               │
-    7 ~                                               │# stacktrace:                                                                                                                                                  │
-    8 ~                                               │  - /obsidian.nvim/lua/obsidian/path.lua:402 in resolve                                                                                                        │
-    9 ~                                               │  - /obsidian.nvim/lua/obsidian/workspace.lua:79 in new_from_spec                                                                                              │
+
+t
+7 ~ │# stacktrace: │
+8 ~ │ - /obsidian.nvim/lua/obsidian/path.lua:402 in resolve │
+9 ~ │ - /obsidian.nvim/lua/obsidian/workspace.lua:79 in new_from_spec │
 
 10 ~ │ - /obsidian.nvim/lua/obsidian/workspace.lua:169 in get_workspace_for_cwd │
 11 ~ │ - /obsidian.nvim/lua/obsidian/workspace.lua:206 in get_from_opts │
 12 ~ │ - /obsidian.nvim/lua/obsidian/client.lua:93 in new │
 13 ~ │ - /obsidian.nvim/lua/obsidian/init.lua:95 in setup │
 14 ~ │ - /opt/homebrew/Cellar/neovim/0.10.4_1/share/nvim/runtime/filetype.lua:36 │
-15 ~ │ - /opt/homebrew/Cellar/neovim/0.10.4_1/share/nvim/runtime/filetype.lua:35 │
+15 ~ │ - /opt/homebrew/Cellar/neovim/0.10.4_1/share/nvim/runtime/filetype.lua:35 |

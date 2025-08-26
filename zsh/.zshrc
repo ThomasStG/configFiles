@@ -1,6 +1,6 @@
-if [[ ! -f ~/.config/zsh/.zshrc.zwc || ~/.config/zsh/.zshrc -nt ~/.config/zsh/.zshrc.zwc ]]; then
-    zcompile ~/.config/zsh/.zshrc ~/.config/zsh.zshrc.zwc
-fi
+# if [[ ! -f ~/.zshrc.zwc || ~/.config/zsh/.zshrc -nt ~/.zshrc.zwc ]]; then
+#     zcompile ~/.config/zsh/.zshrc ~/.zshrc.zwc
+# fi
 autoload -Uz compinit
 if [[ -n "$HOME/.zcompdump" && -f "$HOME/.zcompdump" ]]; then
   zcompdump_age=$(( $(date +%s) - $(stat -f %m "$HOME/.zcompdump") ))
@@ -17,7 +17,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc. Initialization code that may require console input (password prompts, [y/n] confirmations, etc.) must go above this block; everything else may go below.
 
-PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
+PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:/Users/thomas/.local/bin:${PATH}"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export PYENV_ROOT="$HOME/.pyenv"
 export TMUX_POWERLINE_STATUS_LEFT_LENGTH="60"
@@ -89,6 +89,8 @@ zsh-defer '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"'
 bindkey -v
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
+tre() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
 
 zsh-defer source ~/.config/zsh/spotify.zsh
 zsh-defer source ~/.config/zsh/yazi.zsh

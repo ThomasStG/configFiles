@@ -27,7 +27,6 @@ opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
-
 opt.foldenable = false
 
 -- clipboard
@@ -97,7 +96,6 @@ local toggle_terminal = function()
     end
 end
 vim.api.nvim_create_user_command("Floaterminal", toggle_terminal, {})
-
 
 vim.g.copilot_enabled = false
 vim.g.copilot_no_tab_map = true

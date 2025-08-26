@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 count=$(curl -s --user 'thomassgallaher@gmail.com:bjyu jstu cgap bdje' \
-  "https://mail.google.com/mail/feed/atom" \
+  "https://mail.google.com/mail/feed/atom/Inbox" \
   | sed -n 's:.*<fullcount>\(.*\)</fullcount>.*:\1:p')
 count2=$(curl -s --user 'thomasgjunk1@gmail.com:cykd ocpn yvfv yulz' \
-  "https://mail.google.com/mail/feed/atom" \
+  "https://mail.google.com/mail/feed/atom/Inbox" \
   | sed -n 's:.*<fullcount>\(.*\)</fullcount>.*:\1:p')
 
 # Default to 0 if empty

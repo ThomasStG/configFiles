@@ -1,12 +1,19 @@
-657 | com.mitchellh.ghostty          | Ghostty
-659 | com.hnc.Discord                | Discord
-661 | com.operasoftware.OperaGX      | Opera GX
-678 | com.microsoft.Outlook          | Microsoft Outlook
-684 | com.spotify.client             | Spotify
-701 | com.flexibits.fantastical2.mac | Fantastical
-705 | md.obsidian                    | Obsidian
-724 | com.todoist.mac.Todoist        | Todoist
-732 | com.todesktop.230313mzl4w4u92  | Cursor
-745 | com.apple.MobileSMS            | Messages
-750 | com.microsoft.Word             | Microsoft Word
-765 | com.apple.finder               | Finder
+626   | com.apple.finder               | Finder
+882   | com.mitchellh.ghostty          | Ghostty
+883   | com.hnc.Discord                | Discord
+887   | com.operasoftware.OperaGX      | Opera GX
+889   | com.spotify.client             | Spotify
+894   | md.obsidian                    | Obsidian
+26280 | org.qutebrowser.qutebrowser    | qutebrowser
+67543 | org.mozilla.firefox            | Firefox
+43096 | org.mozilla.firefox            | Firefox
+56200 | com.apple.Safari               | Safari
+19105 | com.apple.iCal                 | Calendar
+30384 | com.apple.Preview              | Preview
+23704 | com.apple.MobileSMS            | Messages
+62886 | org.mozilla.pale moon          | Pale Moon
+64585 | com.flexibits.fantastical2.mac | Fantastical
+15169 | com.microsoft.Word             | Microsoft Word
+79104 | com.microsoft.Outlook          | Microsoft Outlook
+89098 | company.thebrowser.Browser     | Arc
+99218 | com.electron.dockerdesktop     | Docker Desktop

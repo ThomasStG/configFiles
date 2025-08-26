@@ -3,21 +3,21 @@ return {
     lazy = false,
     keys = {
         {
-            "<Leader>C-k",
+            "<leader><C-k>",
             function()
                 require("dial.map").manipulate("increment", "normal")
             end,
             desc = "Increment",
         },
         {
-            "<Leader>C-j",
+            "<leader><C-j>",
             function()
                 require("dial.map").manipulate("decrement", "normal")
             end,
             desc = "Decrement",
         },
         {
-            "<Leader>gk",
+            "<leader>gk",
             function()
                 require("dial.map").manipulate("increment", "gnormal")
             end,
@@ -25,7 +25,7 @@ return {
             desc = "Increment (g)",
         },
         {
-            "<Leader>gj",
+            "<leader>gj",
             function()
                 require("dial.map").manipulate("decrement", "gnormal")
             end,
@@ -33,7 +33,7 @@ return {
             desc = "Decrement (g)",
         },
         {
-            "<Leader>k",
+            "<leader>k",
             function()
                 require("dial.map").manipulate("increment", "visual")
             end,
@@ -41,7 +41,7 @@ return {
             desc = "Increment (Visual)",
         },
         {
-            "<Leader>j",
+            "<leader>j",
             function()
                 require("dial.map").manipulate("decrement", "visual")
             end,
