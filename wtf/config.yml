@@ -1,0 +1,138 @@
+wtf:
+  colors:
+    border:
+      focusable: darkslateblue
+      focused: orange
+      normal: gray
+  grid:
+    columns: [32, 32, 32, 32, 90]
+    rows: [10, 10, 10, 4, 4, 90]
+  refreshInterval: 1
+  mods:
+    git:
+      commitCount: 5
+      commitFormat: "[forestgreen]%h [grey]%cd [white]%s [grey]%an[white]"
+      dateFormat: "%H:%M %d %b %y"
+      enabled: true
+      position:
+        top: 0
+        left: 2
+        height: 2
+        width: 2
+      refreshInterval: 8s
+      repositories:
+        - "/Users/thomas/Library/CloudStorage/OneDrive-SNHU/25SPDAY/CS340"
+    github:
+      apiKey: "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"
+      baseURL: ""
+      customQueries:
+        othersPRs:
+          title: "Others Pull Requests"
+          filter: "is:open is:pr -author:ThomasStG"
+      enabled: true
+      enableStatus: true
+      position:
+        top: 0
+        left: 0
+        height: 2
+        width: 2
+      refreshInterval: 5m
+      repositories:
+        - "thomasstg/CS340"
+      uploadURL: ""
+      username: "thomasstg"
+    spotify:
+      enabled: true
+      colors:
+        label: "green"
+        text: "white"
+      position:
+        top: 2
+        left: 0
+        height: 1
+        width: 1
+      refreshInterval: 0
+    ipinfo:
+      colors:
+        name: "lightblue"
+        value: "white"
+      enabled: true
+      position:
+        top: 2
+        left: 1
+        height: 1
+        width: 1
+      refreshInterval: 150
+    power:
+      enabled: true
+      position:
+        top: 2
+        left: 2
+        height: 1
+        width: 1
+      refreshInterval: 15
+      title: "⚡️"
+    textfile:
+      enabled: false
+      filePath: "~/.config/wtf/config.yml"
+      format: true
+      position:
+        top: 0
+        left: 0
+        height: 4
+        width: 1
+      refreshInterval: 30
+      wrapText: false
+    uptime:
+      args: []
+      cmd: "uptime"
+      enabled: true
+      position:
+        top: 2
+        left: 4
+        height: 1
+        width: 1
+      refreshInterval: 30
+      type: cmdrunner
+    clocks:
+      colors:
+        rows:
+          even: "lightblue"
+          odd: "white"
+      enabled: true
+      locations:
+        # From https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+        - New Hampshire: "America/New York"
+        - UTC: "Etc/UTC"
+      position:
+        top: 2
+        left: 3
+        height: 1
+        width: 1
+      refreshInterval: 15s
+      # Valid options are: alphabetical, chronological, natural
+      sort: "alphabetical"
+    urlcheck:
+      enabled: true
+      timeout: 25
+      urls:
+        - http://127.0.0.1:4200
+        - https://google.com
+      position:
+        top: 0
+        left: 4
+        height: 1
+        width: 1
+      refreshInterval: 30
+    resourceusage:
+      cpuCombined: false
+      enabled: true
+      position:
+        top: 1
+        left: 4
+        height: 1
+        width: 1
+      refreshInterval: 1s
+      showCPU: true
+      showMem: true
+      showSwp: true

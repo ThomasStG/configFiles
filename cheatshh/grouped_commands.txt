@@ -1,0 +1,112 @@
+General-Commands/code
+General-Commands/nvim
+General-Commands/vim
+General-Commands/tmux
+General-Commands/less
+General-Commands/rm
+General-Commands/rmdir
+General-Commands/mkdir
+General-Commands/touch
+General-Commands/mv
+General-Commands/cp
+General-Commands/cat
+General-Commands/echo
+General-Commands/grep
+General-Commands/find
+General-Commands/ls
+General-Commands/cd
+General-Commands/pwd
+General-Commands/clear
+General-Commands/exit
+General-Commands/whoami
+General-Commands/man
+Python/python3.11
+Python/python3.12
+Python/python3.13
+Terminal-Utilities/btop
+Terminal-Utilities/neofetch
+Terminal-Utilities/ncdu
+Terminal-Utilities/fdupes
+Terminal-Utilities/df
+Terminal-Utilities/zoxide
+Terminal-Utilities/eza
+Terminal-Utilities/fzf
+Terminal-Utilities/bat
+Terminal-Utilities/wget
+Terminal-Utilities/procs
+Terminal-Utilities/rip
+Terminal-Utilities/gping
+Terminal-Utilities/cmus
+Terminal-Utilities/hexdump
+Terminal-Utilities/objdump
+Terminal-Utilities/file
+Terminal-Utilities/exiftool
+Terminal-Utilities/chmod
+Terminal-Utilities/chown
+Terminal-Utilities/strings
+cool things/cmatrix
+cool things/sl
+cool things/fortune
+cool things/cowsay
+cool things/figlet
+cool things/toilet
+cool things/lolcat
+cool things/asciiquarium
+cool things/pipes.sh
+cool things/hollywood
+cool things/edex-ui
+cool things/bb
+cool things/nyancat
+docker/docker
+docker/docker --version
+docker/docker run hello-world
+docker/docker images
+docker/docker ps
+docker/docker ps -a
+docker/docker run <image-name>
+docker/docker rmi <image-name>
+docker/docker rm <container-id>
+docker/docker stop <container-id>
+docker/docker start <container-id>
+docker/docker exec -it <container-id> /bin/bash
+docker/docker build -t <image-name> .
+docker/docker push <image-name>
+docker/docker pull <image-name>
+docker/docker tag <image-name> <new-image-name>
+docker/docker login
+docker/docker logout
+docker/docker network ls
+docker/docker network inspect <network-name>
+eza/es
+eza/ess
+eza/ef
+eza/ed
+git/git
+git/lazygit
+git/git init
+git/git clone
+git/git add
+git/git commit
+git/git push
+git/git pull
+git/git log
+git/git status
+git/git log
+git/git branch
+git/git checkout
+git/git merge
+git/git rebase
+git/git reset
+git/git revert
+git/git stash
+git/git tag
+git/git fetch
+git/git remote
+git/git diff
+git/git blame
+git/git show
+git/git grep
+git/git bisect
+git/git reflog
+git/git cherry-pick
+tmuxinator/tm

@@ -1,0 +1,143 @@
+{
+  "eza": {
+    "description": "A new ls replacement with a focus on simplicity and speed.",
+    "commands": ["es", "ess", "ef", "ed"]
+  },
+  "tmuxinator": {
+    "description": "A tool for managing multiple tmux sessions.",
+    "commands": ["tm"]
+  },
+  "git": {
+    "description": "Version control system Git. These are some commands you use in often.",
+    "commands": [
+      "git",
+      "lazygit",
+      "git init",
+      "git clone",
+      "git add",
+      "git commit",
+      "git push",
+      "git pull",
+      "git log",
+      "git status",
+      "git log",
+      "git branch",
+      "git checkout",
+      "git merge",
+      "git rebase",
+      "git reset",
+      "git revert",
+      "git stash",
+      "git tag",
+      "git fetch",
+      "git remote",
+      "git diff",
+      "git blame",
+      "git show",
+      "git grep",
+      "git bisect",
+      "git reflog",
+      "git cherry-pick"
+    ]
+  },
+  "docker": {
+    "description": "Docker is a platform for developers and sysadmins to develop, ship, and run applications. Docker lets you quickly assemble applications from components and eliminates the friction that can come when shipping code. Docker lets you get your code tested and deployed into production as fast as possible.",
+    "commands": [
+      "docker",
+      "docker --version",
+      "docker run hello-world",
+      "docker images",
+      "docker ps",
+      "docker ps -a",
+      "docker run <image-name>",
+      "docker rmi <image-name>",
+      "docker rm <container-id>",
+      "docker stop <container-id>",
+      "docker start <container-id>",
+      "docker exec -it <container-id> /bin/bash",
+      "docker build -t <image-name> .",
+      "docker push <image-name>",
+      "docker pull <image-name>",
+      "docker tag <image-name> <new-image-name>",
+      "docker login",
+      "docker logout",
+      "docker network ls",
+      "docker network inspect <network-name>"
+    ]
+  },
+  "Terminal-Utilities": {
+    "description": "Tools for terminal you have which you love.",
+    "commands": [
+      "btop",
+      "neofetch",
+      "ncdu",
+      "fdupes",
+      "df",
+      "zoxide",
+      "eza",
+      "fzf",
+      "bat",
+      "wget",
+      "procs",
+      "rip",
+      "gping",
+      "cmus",
+      "hexdump",
+      "objdump",
+      "file",
+      "exiftool",
+      "chmod",
+      "chown",
+      "strings"
+    ]
+  },
+  "cool things": {
+    "description": "Cool show off things you can always try and chill out with.",
+    "commands": [
+      "cmatrix",
+      "sl",
+      "fortune",
+      "cowsay",
+      "figlet",
+      "toilet",
+      "lolcat",
+      "asciiquarium",
+      "pipes.sh",
+      "hollywood",
+      "edex-ui",
+      "bb",
+      "nyancat"
+    ]
+  },
+  "General-Commands": {
+    "description": "Work-flow general commands I use in my terminal.",
+    "commands": [
+      "code",
+      "nvim",
+      "vim",
+      "tmux",
+      "less",
+      "rm",
+      "rmdir",
+      "mkdir",
+      "touch",
+      "mv",
+      "cp",
+      "cat",
+      "echo",
+      "grep",
+      "find",
+      "ls",
+      "cd",
+      "pwd",
+      "clear",
+      "exit",
+      "whoami",
+      "man"
+    ]
+  },
+  "Python": {
+    "description": "Installed versions of Python.",
+    "commands": ["python3.11", "python3.12", "python3.13"]
+  }
+}
