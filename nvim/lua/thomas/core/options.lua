@@ -25,6 +25,12 @@ opt.termguicolors = true
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
+
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 opt.foldenable = false

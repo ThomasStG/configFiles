@@ -5,9 +5,7 @@ archey4
 aribb24
 arm-none-eabi-binutils
 arm-none-eabi-gcc@8
-atuin
 autoconf
-autojump
 avr-binutils
 avr-gcc@8
 avrdude
@@ -36,7 +34,6 @@ dtc
 eigen
 eza
 fd
-felinks
 ffmpeg
 flac
 fontconfig
@@ -149,7 +146,6 @@ lpeg
 lua
 luajit
 luv
-lynx
 lz4
 lzo
 m-cli
@@ -275,7 +271,7 @@ zsh-system-clipboard
 zsh-vi-mode
 zstd
 aerial@beta
-erospace
+aerospace
 font-hack-nerd-font
 font-meslo-lg-nerd-font
 font-symbols-only-nerd-font

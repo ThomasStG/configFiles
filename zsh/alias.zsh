@@ -9,7 +9,7 @@ alias vimfz="fzf --tmux 80% --bind 'enter:become(nvim {})'"            # Center,
 alias v="nvim ./"
 alias pyvenv="~/PersonalProjects/python-venv.sh"
 alias browse="links"
-alias tm="tmuxinator"
+alias tm="tmuxinator_list_presents"
 alias ts="tmuxinator start"
 alias game="rungame"
 alias reconnect="reconnect"
@@ -22,7 +22,18 @@ alias mpcrp="resave_playlist"
 alias mpcmp="make_playlist"
 alias cheat="cheat"
 alias weather="curl wttr.in/bow+NH"
+alias ch="cheatshh"
+alias wtf="wtfutil"
 
+function tmuxinator_list_presents() {
+  selected_preset=$( tmuxinator list | tail -n +2 | tr ' ' '\n' | fzf)
+
+  if [ -n "$selected_preset" ]; then
+    tmuxinator start "$selected_preset"
+  else
+    echo "No preset selected."
+  fi
+}
 
 # Define your list of commands
 games=(

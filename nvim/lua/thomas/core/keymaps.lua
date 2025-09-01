@@ -24,19 +24,22 @@ keymap.set("n", "<leader>x", ":wqa<CR>", { desc = "save or quit all" })
 keymap.set("n", "<leader>z", ":wq<CR>", { desc = "save or close  current file" })
 
 keymap.set("n", "<leader>y", '"*y', { desc = "copy " })
+keymap.set("n", "Y", "y$", { desc = "copy to end of line" })
 
 keymap.set("", "<up>", "<nop>", { noremap = true })
 keymap.set("", "<down>", "<nop>", { noremap = true })
 keymap.set("i", "<up>", "<nop>", { noremap = true })
 keymap.set("i", "<down>", "<nop>", { noremap = true })
 
-keymap.set("", "<left>", "<nop>", { noremap = true })
-keymap.set("", "<right>", "<nop>", { noremap = true })
+keymap.set("", "<left>", "<nop>", { noremap = false })
+keymap.set("", "<right>", "<nop>", { noremap = false })
 keymap.set("i", "<left>", "<nop>", { noremap = true })
 keymap.set("i", "<right>", "<nop>", { noremap = true })
 
 keymap.set("i", "<leader>jk", "<ESC>", { desc = "exit insert mode" })
 keymap.set("i", "<leader>kj", "<ESC>", { desc = "exit insert mode" })
+keymap.set("v", "<leader>jk", "<ESC>", { desc = "exit visual mode" })
+keymap.set("v", "<leader>kj", "<ESC>", { desc = "exit visual mode" })
 
 keymap.set("n", "<leader>[", function()
     require("treesitter-context").go_to_context(vim.v.count1)
@@ -47,8 +50,20 @@ keymap.set("n", "<leader>fd", function()
 end, { silent = true, noremap = true, desc = "Open Neoclip with Telescope" })
 
 keymap.set("n", "[c", function()
-    require("treesitter-context").go_to_context(vim.v.count1)
+    require("treesitter-context").go_to_context(vim.v.count0)
 end, { silent = true })
+
+keymap.set("n", "]c", function()
+    require("treesitter-context").go_to_context(vim.v.count0)
+end, { silent = true })
+
+keymap.set("n", "<leader>u", ":m .-2<CR>==", { desc = "Move line up" })
+keymap.set("v", "<leader>u", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+keymap.set("v", "<leader>U", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+keymap.set("n", "<leader>U", ":m .+1<CR>==", { desc = "Move line down" })
+
+keymap.set("v", "<", "<gv", { desc = "Indent left or reselect" })
+keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 keymap.set("n", "<leader>mf", ":lua require('harpoon.mark').add_file()")
 keymap.set("n", "<leader>mm", ":lua require('harpoon.ui').toggle_quick_menu()")
@@ -110,3 +125,40 @@ vim.keymap.set("n", "<leader>fd", function()
         end,
     })
 end, { desc = "Replace clipboard with selected item from neoclip and paste it" })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+        local ft = vim.bo.filetype
+        if ft == "c" then
+            vim.bo.makeprg = "gcc % -o %<"
+        elseif ft == "cpp" then
+            vim.bo.makeprg = "g++ % -o %<"
+        elseif ft == "python" then
+            vim.bo.makeprg = "python3 %"
+        elseif ft == "lua" then
+            vim.bo.makeprg = "luac -p %"
+        else
+            vim.bo.makeprg = ""
+        end
+    end,
+})
+
+local function run_in_tmux()
+    local ft = vim.bo.filetype
+    local cmd
+
+    if ft == "c" or ft == "cpp" then
+        cmd = "./" .. vim.fn.expand("%:r")
+    elseif ft == "python" then
+        cmd = "python3 " .. vim.fn.expand("%")
+    elseif ft == "lua" then
+        cmd = "lua " .. vim.fn.expand("%")
+    else
+        print("No run command for filetype: " .. ft)
+        return
+    end
+
+    vim.fn.system("tmux split-window -v '" .. cmd .. " ; exec $SHELL'")
+end
+
+vim.keymap.set("n", "<leader><C-r>", run_in_tmux, { desc = "Run program in tmux split" })

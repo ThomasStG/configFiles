@@ -92,9 +92,32 @@ source <(fzf --zsh)
 
 tre() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
 
+spf() {
+    os=$(uname -s)
+
+    # Linux
+    if [[ "$os" == "Linux" ]]; then
+        export SPF_LAST_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/superfile/lastdir"
+    fi
+
+    # macOS
+    if [[ "$os" == "Darwin" ]]; then
+        export SPF_LAST_DIR="$HOME/Library/Application Support/superfile/lastdir"
+    fi
+
+    command spf "$@"
+
+    [ ! -f "$SPF_LAST_DIR" ] || {
+        . "$SPF_LAST_DIR"
+        rm -f -- "$SPF_LAST_DIR" > /dev/null
+    }
+}
+
 zsh-defer source ~/.config/zsh/spotify.zsh
 zsh-defer source ~/.config/zsh/yazi.zsh
 zsh-defer source ~/.config/zsh/eza.zsh
 zsh-defer source ~/.config/zsh/alias.zsh
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/bit bit
+
+source /Users/thomas/.config/broot/launcher/bash/br
