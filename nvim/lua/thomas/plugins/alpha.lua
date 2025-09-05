@@ -1,4 +1,4 @@
--- Homescreen
+-- homescreen
 return {
     "goolord/alpha-nvim",
     event = "VimEnter",

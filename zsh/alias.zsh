@@ -1,7 +1,7 @@
 alias cat="bat"
 alias alist="arduino-cli board list"
-alias alu='alist | fzf | awk "{print \$3}" | xargs -I {} arduino-cli board upload -p {} --fqbn arduino:avr:mega .'
-alias ac='arduino-cli compile --fqbn arduino:avr:mega .'
+alias alu="arduino_upload"
+alias ac="arduino_compile"
 alias acu='ac && alu'
 alias gitc="git -h"
 alias runc="build_and_run_cpp"
@@ -24,6 +24,26 @@ alias cheat="cheat"
 alias weather="curl wttr.in/bow+NH"
 alias ch="cheatshh"
 alias wtf="wtfutil"
+
+function arduino_upload() {
+  alist | fzf | awk '{print $3}' | xargs -I{} arduino-cli upload -p {} --fqbn arduino:avr:$1 && echo "Uploading to $1"
+}
+function arduino_compile() {
+  arduino-cli compile --fqbn arduino:avr:$1 .
+}
+
+fzf_cmd_history() {
+  local selected
+  selected=$(command cat ~/.zhistory | fzf) || return
+
+  if [[ -n "$selected" ]]; then
+    LBUFFER+="$selected"
+    zle redisplay
+  fi
+}
+
+zle -N fzf_cmd_history
+bindkey '^F' fzf_cmd_history
 
 function tmuxinator_list_presents() {
   selected_preset=$( tmuxinator list | tail -n +2 | tr ' ' '\n' | fzf)

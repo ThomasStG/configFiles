@@ -20,8 +20,7 @@ return {
                     end,
                 },
             })
-
-            require("mini.operators").setup({ checkout = "stable" })
+            require("mini.move").setup()
         end,
     },
 }

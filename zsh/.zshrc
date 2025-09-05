@@ -67,8 +67,27 @@ SAVEHIST=5000
 HISTSIZE=4999
 setopt share_history
 setopt hist_expire_dups_first
-setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt inc_append_history   # append each command as you run it
+unsetopt share_history      # don’t inject commands from other sessions immediately
 setopt hist_verify
+# Capture exit status of the last command
+typeset -g LAST_STATUS=0
+
+precmd() {
+  LAST_STATUS=$?
+}
+
+zshaddhistory() {
+  # $1 is the raw command line
+  local cmd=$1
+  # Modify it by appending the status code
+  # Example: "ls -l" → "ls -l # [0]"
+  print -r -- "$cmd # [$LAST_STATUS]"
+  # Return nonzero to prevent the unmodified version from being added
+  return 1
+}
 
 zsh-defer source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 zsh-defer source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh

@@ -8,4 +8,4 @@ shell-integration = zsh
 background-opacity = 0.85
 keybind = global:cmd+i=inspector:toggle
 keybind = global:cmd+option+t=toggle_quick_terminal
-macos-option-as-alt = true
+macos-option-as-alt = left
