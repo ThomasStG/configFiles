@@ -72,22 +72,6 @@ setopt hist_ignore_space
 setopt inc_append_history   # append each command as you run it
 unsetopt share_history      # don’t inject commands from other sessions immediately
 setopt hist_verify
-# Capture exit status of the last command
-typeset -g LAST_STATUS=0
-
-precmd() {
-  LAST_STATUS=$?
-}
-
-zshaddhistory() {
-  # $1 is the raw command line
-  local cmd=$1
-  # Modify it by appending the status code
-  # Example: "ls -l" → "ls -l # [0]"
-  print -r -- "$cmd # [$LAST_STATUS]"
-  # Return nonzero to prevent the unmodified version from being added
-  return 1
-}
 
 zsh-defer source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 zsh-defer source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -108,6 +92,7 @@ zsh-defer '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"'
 bindkey -v
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+source <(sk --shell zsh)
 
 tre() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
 
@@ -136,6 +121,7 @@ zsh-defer source ~/.config/zsh/spotify.zsh
 zsh-defer source ~/.config/zsh/yazi.zsh
 zsh-defer source ~/.config/zsh/eza.zsh
 zsh-defer source ~/.config/zsh/alias.zsh
+zsh-defer source ~/.config/zsh/atuin.zsh
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/bit bit
 

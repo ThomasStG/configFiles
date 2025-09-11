@@ -5167,3 +5167,25 @@
 2025/09/02 10:42:54 log.go:23: [urlcheck] http://127.0.0.1:4200: Head "http://127.0.0.1:4200": dial tcp 127.0.0.1:4200: connect: connection refused
 2025/09/02 10:43:16 log.go:23: [urlcheck] http://127.0.0.1:4200: Head "http://127.0.0.1:4200": dial tcp 127.0.0.1:4200: connect: connection refused
 2025/09/02 10:43:24 log.go:23: [urlcheck] http://127.0.0.1:4200: Head "http://127.0.0.1:4200": dial tcp 127.0.0.1:4200: connect: connection refused
+2025/09/08 13:25:09 log.go:23: Protocol version: auto
+2025/09/08 13:25:09 log.go:23: Network: tcp
+2025/09/08 13:25:09 log.go:23: [urlcheck] http://127.0.0.1:4200: Head "http://127.0.0.1:4200": dial tcp 127.0.0.1:4200: connect: connection refused
+2025/09/08 13:26:55 log.go:23: Protocol version: auto
+2025/09/08 13:26:55 log.go:23: Network: tcp
+2025/09/08 13:26:55 log.go:23: [urlcheck] http://127.0.0.1:4200: Head "http://127.0.0.1:4200": dial tcp 127.0.0.1:4200: connect: connection refused
+2025/09/08 13:27:28 log.go:23: Protocol version: auto
+2025/09/08 13:27:28 log.go:23: Network: tcp
+2025/09/08 13:27:28 log.go:23: [urlcheck] http://127.0.0.1:4200: Head "http://127.0.0.1:4200": dial tcp 127.0.0.1:4200: connect: connection refused
+2025/09/08 13:28:36 log.go:23: Protocol version: auto
+2025/09/08 13:28:36 log.go:23: Network: tcp
+2025/09/08 13:28:36 log.go:23: [urlcheck] http://127.0.0.1:4200: Head "http://127.0.0.1:4200": dial tcp 127.0.0.1:4200: connect: connection refused
+2025/09/08 13:29:36 log.go:23: Protocol version: auto
+2025/09/08 13:29:36 log.go:23: Network: tcp
+2025/09/08 13:29:36 log.go:23: [urlcheck] http://127.0.0.1:4200: Head "http://127.0.0.1:4200": dial tcp 127.0.0.1:4200: connect: connection refused
+2025/09/08 13:30:12 log.go:23: Protocol version: auto
+2025/09/08 13:30:12 log.go:23: Network: tcp
+2025/09/08 13:30:12 log.go:23: [urlcheck] http://127.0.0.1:4200: Head "http://127.0.0.1:4200": dial tcp 127.0.0.1:4200: connect: connection refused
+2025/09/08 13:30:52 log.go:23: Protocol version: auto
+2025/09/08 13:30:52 log.go:23: Network: tcp
+2025/09/08 13:30:52 log.go:23: [urlcheck] http://127.0.0.1:4200: Head "http://127.0.0.1:4200": dial tcp 127.0.0.1:4200: connect: connection refused
+2025/09/08 13:31:23 log.go:23: [urlcheck] http://127.0.0.1:4200: Head "http://127.0.0.1:4200": dial tcp 127.0.0.1:4200: connect: connection refused

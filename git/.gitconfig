@@ -5,8 +5,10 @@
 	process = git-lfs filter-process
 [user]
 	name = Thomas Gallaher
-	email = ThomasSGallaher@gmail.com
+	email = thomassgallaher@gmail.com
 [init]
 	defaultBranch = main
 [core]
 	autocrlf = input
+[github]
+	user = ThomasStG

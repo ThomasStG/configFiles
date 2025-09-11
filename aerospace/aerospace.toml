@@ -58,10 +58,10 @@ preset = 'qwerty'
 [gaps]
 inner.horizontal = 10
 inner.vertical =   10
-outer.left =       1
-outer.bottom =     1
+outer.left =       5
+outer.bottom =     5
 outer.top =        41
-outer.right =      1
+outer.right =      5
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
