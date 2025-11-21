@@ -3,7 +3,8 @@ vim.g.mapleader = " "
 local keymap = vim.keymap -- for conciseness
 pcall(vim.keymap.del, "n", "<c-y>")
 
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+keymap.set("n", "<leader>ho", ":nohl<CR>", { desc = "Clear search highlights" })
+
 keymap.set("n", "x", '"_x', { desc = "Delete char without yanking" })
 
 -- window management

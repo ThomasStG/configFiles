@@ -1,0 +1,103 @@
+extends c
+
+snippet main
+  int main(int argc, char* argv[]) {
+    ${0}
+    return 0;
+  }
+
+snippet incl
+  #include <${1:iostream}>
+
+snippet inch
+  #include "${1}"
+
+
+snippet forj
+  for (int j = ${1:0} ${2}; j < ${3}; j++) {
+  
+  }
+
+snippet fork
+  for (int k = ${1:0} ${2}; k < ${3}; k++) {
+  
+  }
+
+snippet classp
+  /*! \class $1
+	 *  \brief ${3:Brief class description}
+	 *
+	 *  ${4:Detailed description}
+	 */
+	class ${1:`vim_snippets#Filename('$1', 'name')`}
+	{
+	public:
+		$1(${2});
+		virtual ~$1();
+
+	protected:
+		m_${5}; /*!< ${6:Member description} */
+	};
+
+snippet cout
+	std::cout << ${1} << std::endl;
+# std::cin
+snippet cin
+	std::cin >> ${1};
+
+snippet try
+	try {
+
+	}catch(${1}) {
+
+	}
+
+snippet singleton
+  class ${1:Singleton} {
+  private:
+    ${1}() {}
+    ${1}(const ${1}&) = delete;
+    ${1}& operator=(const ${1}&) = delete;
+
+  public:
+    static ${1}* getInstance() {
+        static ${1} instance;
+        return &instance;
+    }
+  };
+
+snippet observer
+  class ${1:Subject} {
+  public:
+    void attach(${2:Observer* o}) {
+        observers.push_back(o);
+    }
+    void notify() {
+        for (auto* o : observers) o->update();
+    }
+  private:
+    std::vector<${2:Observer*}> observers;
+  };
+
+snippet factory
+  #include "${2}.h"
+
+  class ${1:ProductFactory} {
+  public:
+    static ${2:Product}* create${2}() {
+        return new ${2}();
+    }
+  };
+
+snippet strategy
+  class ${1:Strategy} {
+  public:
+    virtual void execute() = 0;
+  };
+
+  class ${2:ConcreteStrategy} : public ${1} {
+  public:
+    void execute() override {
+        ${0:// implementation}
+    }
+  };

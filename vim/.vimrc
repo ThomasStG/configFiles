@@ -2,7 +2,7 @@
 
 " If you open this file in Vim, it'll be syntax highlighted for you.
 
-" Vim is based on Vi. Setting `nocompatible` switches from the default
+ " Vim is based on Vi. Setting `nocompatible` switches from the default
 " Vi-compatibility mode and enables useful Vim functionality. This
 " configuration option turns out not to be necessary for the file named
 " '~/.vimrc', because Vim automatically enters nocompatible mode if that file
@@ -67,3 +67,5 @@ inoremap <Left>  <ESC>:echoe "Use h"<CR>
 inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
+
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50

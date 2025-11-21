@@ -11,6 +11,7 @@ return {
             --     port = 11434,
             -- },
             virtual_text = {
+
                 enabled = true,
 
                 -- These are the defaults

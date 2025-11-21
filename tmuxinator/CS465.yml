@@ -1,0 +1,22 @@
+name: CS465
+root: ~/OneDrive-SNHU/25FADAY/CS465/lab-3
+
+enable_pane_titles: true
+pane_title_position: top
+
+windows:
+  - frontend:
+      root: ~/OneDrive-SNHU/25FADAY/CS465/lab-3/lab3
+      layout: even-vertical
+      panes:
+        - nvim .
+  - backend:
+      root: ~/OneDrive-SNHU/25FADAY/CS465/lab-3/server
+      layout: even-vertical
+      panes:
+        - nvim .
+  - server:
+      root: ~/OneDrive-SNHU/25FADAY/CS465/lab-3
+      layout: even-vertical
+      panes:
+        - mprocs "cd lab3 && npm run dev" "cd server && npm run go"

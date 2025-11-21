@@ -116,7 +116,7 @@ wtf:
       enabled: true
       timeout: 25
       urls:
-        - http://127.0.0.1:4200
+        - http://127.0.0.1:5173
         - https://google.com
       position:
         top: 0

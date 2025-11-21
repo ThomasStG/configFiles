@@ -1,0 +1,32 @@
+extends markdown
+
+snippet ins
+  <ins>${1}</ins>${2}
+
+snippet bold
+  **${1}**${2}
+
+snippet italic
+  *${1}*${2}
+
+snippet code
+  \`\`\`${1:language}
+  ${2}
+  \`\`\`${0}
+
+snippet link
+  [${1:text}](https://${2:url})${0}
+
+snippet img
+  ![${1:alt}](https://${2:url})${0}
+
+snippet table
+  | ${1:Header 1} | ${2:Header 2} |
+  | --- | --- |
+  | ${3:Data 1} | ${4:Data 2} |
+
+snippet quote
+  > ${1:Quoted text}
+
+snippet todo
+  - [ ] ${1:Task name}

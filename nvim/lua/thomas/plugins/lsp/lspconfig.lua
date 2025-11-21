@@ -15,6 +15,14 @@ return {
         local keymap = vim.keymap
 
         local function on_attach(client, bufnr)
+            lsp_signature.on_attach({
+                bind = true,
+                handler_opts = { border = "rounded" },
+                hint_enable = true,
+                hint_prefix = "🐼 ",
+                floating_window = true,
+                floating_window_above_cur_line = true,
+            }, bufnr)
             local opts = { buffer = bufnr, silent = true }
 
             opts.desc = "Show LSP references"
@@ -113,7 +121,20 @@ return {
                 })
             end,
         })
-
+        lspconfig["ts_ls"].setup({
+            on_attach = function(client, bufnr)
+                -- optional: show function signatures
+                require("lsp_signature").on_attach({
+                    bind = true,
+                    handler_opts = { border = "rounded" },
+                }, bufnr)
+            end,
+            settings = {
+                typescript = {
+                    format = { semicolons = "insert" },
+                },
+            },
+        })
         lspconfig["graphql"].setup({
             capabilities = capabilities,
             on_attach = on_attach,

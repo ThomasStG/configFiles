@@ -1,0 +1,92 @@
+aicommit2: Reactive CLI that generates commit messages for Git and Jujutsu with AI
+asm-lsp: Language server for NASM/GAS/GO Assembly
+btllib: Bioinformatics Technology Lab common code library
+claude-code-router: Tool to route Claude Code requests to different models and customize any request
+claude-code-templates: CLI tool for configuring and monitoring Claude Code
+clippy: Copy files from your terminal that actually paste into GUI apps
+container: Create and run Linux containers using lightweight virtual machines
+container-canary: Test and validate container requirements against versioned manifests
+corepack: Package acting as bridge between Node projects and their package managers
+cpptrace: Simple, portable, and self-contained stacktrace library for C++11 and newer
+docmd: Minimal Markdown documentation generator
+doh: Stand-alone DNS-over-HTTPS resolver using libcurl
+eigen@3: C++ template library for linear algebra
+erlang-language-platform: LSP server and CLI for the Erlang programming language
+fake-gcs-server: Emulator for Google Cloud Storage API
+fennel-ls: Language Server for Fennel
+filebrowser: Web File Browser
+framework-tool-tui: TUI for controlling and monitoring Framework Computers hardware
+gcl: GNU Common Lisp
+getparty: Multi-part HTTP download manager
+ghidra: Multi-platform software reverse engineering framework
+gitlab-ci-linter: Command-line tool to lint GitLab CI YAML files
+gocheat: TUI Cheatsheet for keybindings, hotkeys and more
+goclone: Website Cloner
+hack-browser-data: Command-line tool for decrypting and exporting browser data
+haraka: Fast, highly extensible, and event driven SMTP server
+harbor-cli: CLI for Harbor container registry
+hexhog: Hex viewer/editor
+httptap: HTTP request visualizer with phase-by-phase timing breakdown
+intelli-shell: Like IntelliSense, but for shells
+kekkai: File integrity monitoring tool
+kibi: Text editor in ≤1024 lines of code, written in Rust
+kimi-cli: CLI agent for MoonshotAI Kimi platform
+ktea: Kafka TUI client
+mark: Sync your markdown files with Confluence pages
+mcat: Terminal image, video, directory, and Markdown viewer
+mysql-to-sqlite3: Transfer data from MySQL to SQLite
+node@24: Open-source, cross-platform JavaScript runtime environment
+openlist: New AList fork addressing anti-trust issues
+pelican: Static site generator that supports Markdown and reST syntax
+permify: Open-source authorization service & policy engine based on Google Zanzibar
+postgres-language-server: Language Server for Postgres
+q: Tiny command-line DNS client with support for UDP, TCP, DoT, DoH, DoQ and ODoH
+qcoro6: C++ Coroutines for Qt
+quint: Core tool for the Quint specification language
+rails-mcp-server: MCP server for Rails applications
+reddix: Reddit, refined for the terminal
+shortest: AI-powered natural language end-to-end testing framework
+sqlite3-to-mysql: Transfer data from SQLite to MySQL
+supabase: Open source Firebase alternative
+taskline: Tasks, boards & notes for the command-line habitat
+taze: Modern cli tool that keeps your deps fresh
+teamtype: Peer-to-peer, editor-agnostic collaborative editing of local text files
+tfplugingen-openapi: OpenAPI to Terraform Provider Code Generation Specification
+tscriptify: Golang struct to TypeScript class/interface converter
+tuios: Terminal UI OS (Terminal Multiplexer)
+vgo: Project scaffolder for Go, written in Go
+vibe-log-cli: CLI tool for analyzing Claude Code sessions
+vtcode: CLI Semantic Coding Agent
+zsv: Tabular data swiss-army knife CLI
+==> New Casks
+affinity: Image editing and design software
+archi: Open-source ArchiMate modelling toolkit
+astro-editor: Markdown editor for Astro content collections
+backdrop: Live wallpaper app
+chatgpt-atlas: OpenAI's official browser with ChatGPT built in
+chitubox: 3D printing slicer software
+codex: OpenAI's coding agent that runs in your terminal
+digicheck-ng: Audio analysis software
+dockflow: Manage Dock presets and switch between them instantly
+exelearning: Authoring tool to create educational resources
+font-elms-sans
+font-science-gothic
+font-stack-sans-notch
+freepdf: Reader that supports translating PDF documents
+freetex: Free intelligent formula recognition software
+labymod: Launcher for LabyMod (Minecraft client)
+laserpecker-design-space: Laser engraving and cutting software
+launchie: Launchpad replacement
+launchos: Launchpad alternative
+llamabarn: Menu bar app for running local LLMs
+macpacker: Archive manager
+mcloud: China Mobile Cloud Drive
+nkoda: Digital sheet music app
+openlist-app: Desktop application for OpenList
+orcasheets: Local-first data analytics
+pikpak: Client for PikPak cloud storage service
+proxygen-app: HTTP proxy tool
+pxplay: Third-party Remote Play client for PlayStation consoles
+qidistudio: Slicer software for QIDI 3D printers
+sculptor: GUI for Claude Code
+simplysign: Emulates a physical crypto card/reader for proCertum SmartSign

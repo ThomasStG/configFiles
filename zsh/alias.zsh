@@ -2,7 +2,7 @@ alias cat="bat"
 alias alist="arduino-cli board list"
 alias alu="arduino_upload"
 alias ac="arduino_compile"
-alias acu='ac && alu'
+alias acu="arduino_compile_and_upload"
 alias gitc="git -h"
 alias runc="build_and_run_cpp"
 alias vimfz="fzf --tmux 80% --bind 'enter:become(nvim {})'"            # Center, 80% width and height
@@ -24,12 +24,28 @@ alias cheat="cheat"
 alias weather="curl wttr.in/bow+NH"
 alias ch="cheatshh"
 alias wtf="wtfutil"
+alias remote="ssh_connect"
+alias at="arduino-cli upload -p /dev/tty.usbmodem14101 --fqbn arduino:avr:uno --verify"
+
+function ssh_connect() {
+  local host="10.200.200.$1:"
+  ssh -L 8000:localhost:8000 -t thomas@"$host" 'TERM=xterm-256color zsh -l -c "clear; exec zsh"'
+}
+
+function arduino_compile() {
+  arduino-cli compile --fqbn arduino:avr:$1 --output-dir build .
+}
 
 function arduino_upload() {
-  alist | fzf | awk '{print $3}' | xargs -I{} arduino-cli upload -p {} --fqbn arduino:avr:$1 && echo "Uploading to $1"
+  local port=$(alist | fzf --query "A" | awk '{print $1}')
+  local baud=${2:-9600}
+  arduino-cli upload -p $port --fqbn arduino:avr:$1 --input-dir build \
+    && echo "Uploaded to $port using $1" \
+    && arduino-cli monitor -p $port --config baudrate=$baud
 }
-function arduino_compile() {
-  arduino-cli compile --fqbn arduino:avr:$1 .
+
+function arduino_compile_and_upload() {
+  ac $1 && alu $1 $2
 }
 
 fzf_cmd_history() {
@@ -84,8 +100,15 @@ function reconnect() {
     sesh connect "$(sesh list | fzf)"
 }
 
-function build_and_run_cpp(){
-  g++ -std=c++20 -o ${1%.*} "$1" && ./${1%.*}
+function build_and_run_cpp() {
+  local src="$1"
+  local out="${src%.*}"
+  
+  if g++ -std=c++26 -Wall -Wextra -O2 -o "$out.out" "$src"; then
+    "./$out.out"
+  else
+    echo "Build failed!"
+  fi
 }
 
 function resave_playlist() {

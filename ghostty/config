@@ -1,11 +1,11 @@
 quit-after-last-window-closed = true
 font-family =  hack-nerd-font
 font-size = 14
+theme = Black Metal (Nile)
 theme = Monokai Pro Octagon
 macos-titlebar-style = hidden
 clipboard-write = allow
 shell-integration = zsh
-background-opacity = 0.85
-keybind = global:cmd+i=inspector:toggle
+background-opacity = 0.9
 keybind = global:cmd+option+t=toggle_quick_terminal
 macos-option-as-alt = left
