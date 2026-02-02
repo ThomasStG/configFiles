@@ -1,0 +1,19 @@
+{
+    "jobs_tab_visibility": "shown",
+    "rmd_viewer_type": "pane",
+    "initial_working_directory": "~",
+    "reformat_on_save": true,
+    "strip_trailing_whitespace": true,
+    "line_ending_conversion": "posix",
+    "default_encoding": "UTF-8",
+    "editor_keybindings": "vim",
+    "posix_terminal_shell": "bash",
+    "text_rendering": "geometricPrecision",
+    "global_theme": "alternate",
+    "editor_theme": "Material",
+    "soft_wrap_rmd_files": false,
+    "rmd_chunk_output_inline": false,
+    "python_type": "system",
+    "python_version": "3.10.8",
+    "python_path": "/usr/local/bin/python3.10"
+}

@@ -1,99 +1,102 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 local keymap = vim.keymap -- for conciseness
-pcall(vim.keymap.del, "n", "<c-y>")
+local map = vim.keymap.set
+pcall(keymap.del, "n", "<c-y>")
 
-keymap.set("n", "<leader>ho", ":nohl<CR>", { desc = "Clear search highlights" })
+map("n", "<leader>ho", ":nohl<CR>", { desc = "Clear search highlights" })
 
-keymap.set("n", "x", '"_x', { desc = "Delete char without yanking" })
+map("n", "x", '"_x', { desc = "Delete char without yanking" })
 
 -- window management
-keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
-keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
-keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
-keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
+map("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
+map("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
+map("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
+map("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
-keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
-keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
-keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
-keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new ta
+map("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
+map("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
+map("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
+map("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
+map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new ta
 
-keymap.set("n", "<leader>w", ":w<CR>", { desc = "save" })
-keymap.set("n", "<leader>q", ":q<CR>", { desc = "quit" })
-keymap.set("n", "<leader>x", ":wqa<CR>", { desc = "save or quit all" })
-keymap.set("n", "<leader>z", ":wq<CR>", { desc = "save or close  current file" })
+map("n", "<leader>w", ":w<CR>", { desc = "save" })
+map("n", "<leader>q", ":q<CR>", { desc = "quit" })
+map("n", "<leader>x", ":wqa<CR>", { desc = "save or quit all" })
+map("n", "<leader>z", ":wq<CR>", { desc = "save or close  current file" })
 
-keymap.set("n", "<leader>y", '"*y', { desc = "copy " })
-keymap.set("n", "Y", "y$", { desc = "copy to end of line" })
+map("n", "<leader>y", '"*y', { desc = "copy " })
+map("n", "Y", "y$", { desc = "copy to end of line" })
 
-keymap.set("", "<up>", "<nop>", { noremap = true })
-keymap.set("", "<down>", "<nop>", { noremap = true })
-keymap.set("i", "<up>", "<nop>", { noremap = true })
-keymap.set("i", "<down>", "<nop>", { noremap = true })
+map("", "<up>", "<nop>", { noremap = true })
+map("", "<down>", "<nop>", { noremap = true })
+map("i", "<up>", "<nop>", { noremap = true })
+map("i", "<down>", "<nop>", { noremap = true })
 
-keymap.set("", "<left>", "<nop>", { noremap = false })
-keymap.set("", "<right>", "<nop>", { noremap = false })
-keymap.set("i", "<left>", "<nop>", { noremap = true })
-keymap.set("i", "<right>", "<nop>", { noremap = true })
+map("", "<left>", "<nop>", { noremap = false })
+map("", "<right>", "<nop>", { noremap = false })
+map("i", "<left>", "<nop>", { noremap = true })
+map("i", "<right>", "<nop>", { noremap = true })
 
-keymap.set("i", "<leader>jk", "<ESC>", { desc = "exit insert mode" })
-keymap.set("i", "<leader>kj", "<ESC>", { desc = "exit insert mode" })
-keymap.set("v", "<leader>jk", "<ESC>", { desc = "exit visual mode" })
-keymap.set("v", "<leader>kj", "<ESC>", { desc = "exit visual mode" })
+map("i", "<leader>jk", "<ESC>", { desc = "exit insert mode" })
+map("i", "<leader>kj", "<ESC>", { desc = "exit insert mode" })
+map("v", "<leader>jk", "<ESC>", { desc = "exit visual mode" })
+map("v", "<leader>kj", "<ESC>", { desc = "exit visual mode" })
 
-keymap.set("n", "<leader>[", function()
+map("n", "<leader>[", function()
     require("treesitter-context").go_to_context(vim.v.count1)
 end, { silent = true })
 
-keymap.set("n", "<leader>fd", function()
+map("n", "<leader>fd", function()
     require("telescope").extensions.neoclip.default()
 end, { silent = true, noremap = true, desc = "Open Neoclip with Telescope" })
 
-keymap.set("n", "[c", function()
+map("n", "[c", function()
     require("treesitter-context").go_to_context(vim.v.count0)
 end, { silent = true })
 
-keymap.set("n", "]c", function()
+map("n", "]c", function()
     require("treesitter-context").go_to_context(vim.v.count0)
 end, { silent = true })
 
--- keymap.set("n", "<leader>u", ":m .-2<CR>==", { desc = "Move line up" })
--- keymap.set("v", "<leader>u", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
--- keymap.set("v", "<leader>U", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
--- keymap.set("n", "<leader>U", ":m .+1<CR>==", { desc = "Move line down" })
+-- map("n", "<leader>u", ":m .-2<CR>==", { desc = "Move line up" })
+-- map("v", "<leader>u", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+-- map("v", "<leader>U", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+-- map("n", "<leader>U", ":m .+1<CR>==", { desc = "Move line down" })
 
-keymap.set("v", "<", "<gv", { desc = "Indent left or reselect" })
-keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
+map("v", "<", "<gv", { desc = "Indent left or reselect" })
+map("v", ">", ">gv", { desc = "Indent right and reselect" })
 
-keymap.set("n", "<leader>mf", ":lua require('harpoon.mark').add_file()")
-keymap.set("n", "<leader>mm", ":lua require('harpoon.ui').toggle_quick_menu()")
-keymap.set("n", "<leader>md", ":lua require('harpoon.ui').nav_next()")
-keymap.set("n", "<leader>mu", ":lua require('harpoon.ui').nav_prev()")
+map("n", "<leader>mf", ":lua require('harpoon.mark').add_file()")
+map("n", "<leader>mm", ":lua require('harpoon.ui').toggle_quick_menu()")
+map("n", "<leader>md", ":lua require('harpoon.ui').nav_next()")
+map("n", "<leader>mu", ":lua require('harpoon.ui').nav_prev()")
 
-keymap.set("n", "<leader>gg", "<cmd>Gen<CR>", { desc = "Run gen.nvim with built in model" })
-keymap.set("n", "<leader>gc", "<cmd>Gen Chat<CR>", { desc = "Open Chat with gen.nvim" })
-keymap.set("x", "<leader>gg", ":'<,'>Gen<CR>", { desc = "Open menu with highlighted selected as parameter" })
+map("n", "<leader>gg", "<cmd>Gen<CR>", { desc = "Run gen.nvim with built in model" })
+map("n", "<leader>gc", "<cmd>Gen Chat<CR>", { desc = "Open Chat with gen.nvim" })
+map("x", "<leader>gg", ":'<,'>Gen<CR>", { desc = "Open menu with highlighted selected as parameter" })
 
-keymap.set("x", "gl", "<Plug>(lion-align)", { desc = "Align text with lion (left)" }) -- Align left
-keymap.set("x", "gL", "<Plug>(lion-align-right)", { desc = "Align text with lion (right)" }) -- Align right
+map("x", "gl", "<Plug>(lion-align)", { desc = "Align text with lion (left)" }) -- Align left
+map("x", "gL", "<Plug>(lion-align-right)", { desc = "Align text with lion (right)" }) -- Align right
 
-keymap.set("n", "<leader>ot", ":Floaterminal<CR>", { desc = "Call the floating terminal from options.lua" })
+map("n", "<leader>ot", ":Floaterminal<CR>", { desc = "Call the floating terminal from options.lua" })
 
-keymap.set("n", "<leader>ci", function()
+map("n", "<leader>ci", function()
     vim.cmd("Codeium Toggle")
 end, { desc = "Toggle Codeium" })
 
-keymap.set("n", "<BS>", "^", { desc = "go to start of line" })
-keymap.set("n", "<leader>.", ":TransparentToggle<cr>", { noremap = true, silent = true, desc = "Toggle Transparency" })
-keymap.set("n", "<leader>of", function()
+map("n", "<BS>", "^", { desc = "go to start of line" })
+map("n", "<leader>.", ":TransparentToggle<cr>", { noremap = true, silent = true, desc = "Toggle Transparency" })
+map("n", "<leader>of", function()
     local file = vim.fn.expand("%:p") -- Get full path of the current file
     vim.cmd("!code " .. file .. " &") -- Open in VS Code (runs in background)
 end, { desc = "Open current file in VS Code" })
-keymap.set("n", "<leader>oF", function()
+map("n", "<leader>oF", function()
     vim.cmd("!code . &") -- Open in VS Code (runs in background)
 end, { desc = "Open current project in VS Code" })
-vim.keymap.set("n", "<leader>fd", function()
+map("n", "<leader>is", ":IronRepl<CR>", { desc = "Open Iron REPL" })
+map("n", "<leader>fd", function()
     local ok, telescope = pcall(require, "telescope")
     if not ok then
         print("Telescope not found")
@@ -162,26 +165,89 @@ local function run_in_tmux()
     vim.fn.system("tmux split-window -v '" .. cmd .. " ; exec $SHELL'")
 end
 
-vim.keymap.set("n", "<leader><C-r>", run_in_tmux, { desc = "Run program in tmux split" })
-vim.keymap.set({ "n", "x" }, "<leader>re", function()
+map("n", "<leader><C-r>", run_in_tmux, { desc = "Run program in tmux split" })
+map({ "n", "x" }, "<leader>re", function()
     return require("refactoring").refactor("Extract Function")
 end, { expr = true, desc = "Extract Function" })
-vim.keymap.set({ "n", "x" }, "<leader>rf", function()
+map({ "n", "x" }, "<leader>rf", function()
     return require("refactoring").refactor("Extract Function To File")
 end, { expr = true, desc = "Extract Function To File" })
-vim.keymap.set({ "n", "x" }, "<leader>rv", function()
+map({ "n", "x" }, "<leader>rv", function()
     return require("refactoring").refactor("Extract Variable")
 end, { expr = true, desc = "Extract Variable" })
-vim.keymap.set({ "n", "x" }, "<leader>rI", function()
+map({ "n", "x" }, "<leader>rI", function()
     return require("refactoring").refactor("Inline Function")
 end, { expr = true, desc = "Inline Function" })
-vim.keymap.set({ "n", "x" }, "<leader>ri", function()
+map({ "n", "x" }, "<leader>ri", function()
     return require("refactoring").refactor("Inline Variable")
 end, { expr = true, desc = "Inline Variable" })
 
-vim.keymap.set({ "n", "x" }, "<leader>rbb", function()
+map({ "n", "x" }, "<leader>rbb", function()
     return require("refactoring").refactor("Extract Block")
 end, { expr = true, desc = "Extract Block" })
-vim.keymap.set({ "n", "x" }, "<leader>rbf", function()
+map({ "n", "x" }, "<leader>rbf", function()
     return require("refactoring").refactor("Extract Block To File")
 end, { expr = true, desc = "Extract Block To File" })
+
+-- Auto Session
+map("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore session for cwd" }) -- restore last workspace session for current directory
+map("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save session for auto session root dir" }) -- save workspace session for current working directory
+
+-- Code Companion
+map("n", "<leader>aa", "<cmd>CodeCompanionChat Toggle<CR>", { desc = "AI Chat: Toggle" })
+map("n", "<leader>ax", "<cmd>CodeCompanionChat Close<CR>", { desc = "AI Chat: Close" })
+
+map("v", "<leader>ga", "<cmd>CodeCompanionChat Add<CR>", { desc = "AI Chat: Add selection" })
+map("n", "<leader>am", function()
+    require("codecompanion.actions").select_model()
+end, { desc = "AI: Select model" })
+map({ "n", "v" }, "<leader>ap", "<cmd>CodeCompanionActions<CR>", { desc = "AI Actions" })
+
+-- Dial
+
+-- Edgy
+
+map({ "n" }, "<leader>el", "<cmd>Edgy toggle left<cr>", { desc = "Toggle Explorer sidebar" })
+map({ "n" }, "<leader>tb", "<cmd>Edgy toggle bottom<cr>", { desc = "Toggle Terminal sidebar" })
+
+-- Formatting
+
+map({ "n", "v" }, "<leader>mp", function()
+    require("conform").format({
+        lsp_fallback = true,
+        async = false,
+        timeout_ms = 1000,
+    })
+end, { desc = "Format file or range (in visual mode)" })
+
+-- Harpoon
+
+-- Iron
+
+-- Lua Snip
+
+-- vim dap
+
+map("n", "<leader>db", function()
+    dap.toggle_breakpoint()
+end, { desc = "Toggle Breakpoint" })
+
+map("n", "<leader>dc", function()
+    dap.continue()
+end, { desc = "Start/Continue Debugging" })
+
+map("n", "<leader>do", function()
+    dap.step_over()
+end, { desc = "Step Over" })
+
+map("n", "<leader>di", function()
+    dap.step_into()
+end, { desc = "Step Into" })
+
+map("n", "<leader>du", function()
+    dap.step_out()
+end, { desc = "Step Out" })
+
+map("n", "<leader>dx", function()
+    dap.terminate()
+end, { desc = "Terminate Debugging" })

@@ -9,7 +9,7 @@ return {
 
         -- Configure git-worktree
         Worktree.setup({
-            change_directory_command = "cd",
+            change_directory_command = "z",
             update_on_change = true,
             clearjumps_on_change = true,
         })

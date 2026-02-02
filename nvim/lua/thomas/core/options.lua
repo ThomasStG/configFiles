@@ -1,6 +1,17 @@
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
 vim.cmd("let g:netrw_liststyle = 3")
 
+vim.filetype.add({
+    extension = {
+        qmd = "quarto",
+    },
+})
+
+vim.keymap.set("n", "<localleader>qr", function()
+    vim.cmd("write")
+    vim.cmd("!quarto render %")
+end, { desc = "Quarto render current file" })
+
 local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
@@ -38,7 +49,6 @@ opt.foldenable = false
 
 -- clipboard
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
-
 -- split windows
 opt.splitright = true -- split vertical window to the right opt.splitbelow = true -- split horizontal window to the bottom
 
@@ -110,3 +120,39 @@ vim.g.copilot_filetypes = {
     ["*"] = false, -- Disable Copilot for all filetypes
 }
 vim.g.transparent_enabled = true
+
+vim.api.nvim_create_autocmd("TermOpen", {
+    callback = function(args)
+        -- Only run for iron REPL buffers
+        local bufname = vim.api.nvim_buf_get_name(args.buf)
+        if not bufname:match("iron") then
+            return
+        end
+
+        -- Only run once per buffer
+        if vim.b[args.buf].wd_set then
+            return
+        end
+        vim.b[args.buf].wd_set = true
+
+        -- Determine the root directory (current buffer's folder or fallback to cwd)
+        local root = vim.fn.expand("%:p:h")
+        if root == "" then
+            root = vim.fn.getcwd()
+        end
+
+        -- Delay to ensure terminal job is fully attached
+        vim.defer_fn(function()
+            local job = vim.b[args.buf].terminal_job_id
+            if not job then
+                return
+            end
+
+            -- Send setwd command to R REPL
+            vim.fn.chansend(job, "setwd(normalizePath(" .. vim.fn.string(root) .. "))\n")
+
+            -- Optional debug: uncomment to see confirmation in REPL
+            -- vim.fn.chansend(job, "cat('AUTO SETWD FIRED: " .. root .. "\\n')\n")
+        end, 200) -- 200ms is usually sufficient
+    end,
+})

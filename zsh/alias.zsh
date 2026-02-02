@@ -26,6 +26,20 @@ alias ch="cheatshh"
 alias wtf="wtfutil"
 alias remote="ssh_connect"
 alias at="arduino-cli upload -p /dev/tty.usbmodem14101 --fqbn arduino:avr:uno --verify"
+alias rrun="run_r"
+
+function run_r() {
+  local script="$1"
+  local out="plot.png"
+
+  Rscript -e "
+    png('$out', width=800, height=600);
+    source('$script');
+    dev.off()
+  "
+
+  kitten icat "$out"
+}
 
 function ssh_connect() {
   local host="10.200.200.$1:"

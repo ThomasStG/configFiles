@@ -1,0 +1,18 @@
+name: SPDAY26
+root: ~/OneDrive-SNHU/26SPDAY
+
+enable_pane_titles: true
+pane_title_position: top
+
+windows:
+  - main:
+      root: ~/OneDrive-SNHU/26SPDAY
+      layout: even-vertical
+      panes:
+        - nvim .
+        -
+  - other:
+      root: ~/OneDrive-SNHU/26SPDAY/
+      layout: even-vertical
+      panes:
+        -

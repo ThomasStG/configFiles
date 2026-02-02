@@ -5667,3 +5667,13 @@
 2025/11/19 14:25:13 log.go:23: Protocol version: auto
 2025/11/19 14:25:13 log.go:23: Network: tcp
 2025/11/19 14:25:13 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/01/28 14:31:35 log.go:23: Protocol version: auto
+2026/01/28 14:31:35 log.go:23: Network: tcp
+2026/01/28 14:31:35 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/01/28 14:32:05 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/02/02 14:09:29 log.go:23: Protocol version: auto
+2026/02/02 14:09:29 log.go:23: Network: tcp
+2026/02/02 14:09:29 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/02/02 14:10:21 log.go:23: Protocol version: auto
+2026/02/02 14:10:21 log.go:23: Network: tcp
+2026/02/02 14:10:21 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused

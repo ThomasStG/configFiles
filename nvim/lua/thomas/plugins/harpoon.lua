@@ -4,9 +4,9 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
     config = function()
         local harpoon = require("harpoon")
+        local map = vim.keymap.set
 
         harpoon:setup({})
-
         local conf = require("telescope.config").values
         local function toggle_telescope(harpoon_files)
             local file_paths = {}
@@ -26,35 +26,34 @@ return {
                 :find()
         end
 
-        vim.keymap.set("n", "<leader>hM", function()
+        map("n", "<leader>hM", function()
             toggle_telescope(harpoon:list())
         end, { desc = "Open harpoon menu" })
 
-        vim.keymap.set("n", "<leader>hm", function()
+        map("n", "<leader>hm", function()
             harpoon:list():add()
         end)
-        vim.keymap.set("n", "<leader>hl", function()
+        map("n", "<leader>hl", function()
             harpoon.ui:toggle_quick_menu(harpoon:list())
         end)
 
-        vim.keymap.set("n", "<leader>ha", function()
+        map("n", "<leader>ha", function()
             harpoon:list():select(1)
         end)
-        vim.keymap.set("n", "<leader>hs", function()
+        map("n", "<leader>hs", function()
             harpoon:list():select(2)
         end)
-        vim.keymap.set("n", "<leader>hd", function()
+        map("n", "<leader>hd", function()
             harpoon:list():select(3)
         end)
-        vim.keymap.set("n", "<leader>hf", function()
+        map("n", "<leader>hf", function()
             harpoon:list():select(4)
         end)
-
         -- Toggle previous & next buffers stored within Harpoon list
-        vim.keymap.set("n", "<leader>hp", function()
+        map("n", "<leader>hp", function()
             harpoon:list():prev()
         end)
-        vim.keymap.set("n", "<leader>hn", function()
+        map("n", "<leader>hn", function()
             harpoon:list():next()
         end)
     end,

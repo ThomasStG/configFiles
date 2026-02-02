@@ -1,56 +1,9 @@
 return {
     "monaqa/dial.nvim",
     lazy = false,
-    keys = {
-        {
-            "<leader><C-k>",
-            function()
-                require("dial.map").manipulate("increment", "normal")
-            end,
-            desc = "Increment",
-        },
-        {
-            "<leader><C-j>",
-            function()
-                require("dial.map").manipulate("decrement", "normal")
-            end,
-            desc = "Decrement",
-        },
-        {
-            "<leader>gk",
-            function()
-                require("dial.map").manipulate("increment", "gnormal")
-            end,
-            mode = { "n", "v" },
-            desc = "Increment (g)",
-        },
-        {
-            "<leader>gj",
-            function()
-                require("dial.map").manipulate("decrement", "gnormal")
-            end,
-            mode = { "n", "v" },
-            desc = "Decrement (g)",
-        },
-        {
-            "<leader>k",
-            function()
-                require("dial.map").manipulate("increment", "visual")
-            end,
-            mode = "v",
-            desc = "Increment (Visual)",
-        },
-        {
-            "<leader>j",
-            function()
-                require("dial.map").manipulate("decrement", "visual")
-            end,
-            mode = "v",
-            desc = "Decrement (Visual)",
-        },
-    },
     config = function()
         local augend = require("dial.augend")
+        local map = vim.keymap.set
         require("dial.config").augends:register_group({
             default = {
                 augend.integer.alias.decimal,
@@ -63,5 +16,22 @@ return {
                 augend.constant.new({ elements = { "yes", "no" }, word = true, cyclic = true }),
             },
         })
+        local dial = require("dial.map")
+
+        local mappings = {
+            { { "n" }, "<leader><C-k>", "increment", "normal", "Increment" },
+            { { "n" }, "<leader><C-j>", "decrement", "normal", "Decrement" },
+            { { "n", "v" }, "<leader>gk", "increment", "gnormal", "Increment (g)" },
+            { { "n", "v" }, "<leader>gj", "decrement", "gnormal", "Decrement (g)" },
+            { { "v" }, "<leader>k", "increment", "visual", "Increment (Visual)" },
+            { { "v" }, "<leader>j", "decrement", "visual", "Decrement (Visual)" },
+        }
+
+        for _, m in ipairs(mappings) do
+            local modes, lhs, action, dial_mode, desc = unpack(m)
+            map(modes, lhs, function()
+                dial.manipulate(action, dial_mode)
+            end, { desc = desc })
+        end
     end,
 }

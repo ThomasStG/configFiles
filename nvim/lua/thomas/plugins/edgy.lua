@@ -50,10 +50,4 @@ return {
             winblend = 5,
         },
     },
-
-    -- optionally create keymaps to toggle edgy windows globally
-    keys = {
-        { "<leader>el", "<cmd>Edgy toggle left<cr>", desc = "Toggle Explorer sidebar" },
-        { "<leader>tb", "<cmd>Edgy toggle bottom<cr>", desc = "Toggle Terminal sidebar" },
-    },
 }

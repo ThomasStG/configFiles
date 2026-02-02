@@ -40,6 +40,7 @@ return {
                 "texlab",
                 "arduino_language_server",
                 "marksman",
+                "rust_analyzer",
             },
             automatic_installation = true,
         })
