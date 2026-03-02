@@ -1,0 +1,17 @@
+# Left prompt
+add_newline = true
+
+[directory]
+style = "bold blue"
+
+[git_branch]
+style = "bold purple"
+
+[git_status]
+style = "bold red"
+
+# Right modules using `custom` and Starship's built-in right prompt
+[custom.right_prompt]
+command = 'printf "┄%.0s" {1..200}; starship module cmd_duration'
+format = "[$output]($style)"
+style = "bold yellow"

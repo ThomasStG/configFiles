@@ -1,10 +1,5 @@
 alias cat="bat"
-alias alist="arduino-cli board list"
-alias alu="arduino_upload"
-alias ac="arduino_compile"
-alias acu="arduino_compile_and_upload"
 alias gitc="git -h"
-alias runc="build_and_run_cpp"
 alias vimfz="fzf --tmux 80% --bind 'enter:become(nvim {})'"            # Center, 80% width and height
 alias v="nvim ./"
 alias pyvenv="~/PersonalProjects/python-venv.sh"
@@ -26,40 +21,10 @@ alias ch="cheatshh"
 alias wtf="wtfutil"
 alias remote="ssh_connect"
 alias at="arduino-cli upload -p /dev/tty.usbmodem14101 --fqbn arduino:avr:uno --verify"
-alias rrun="run_r"
-
-function run_r() {
-  local script="$1"
-  local out="plot.png"
-
-  Rscript -e "
-    png('$out', width=800, height=600);
-    source('$script');
-    dev.off()
-  "
-
-  kitten icat "$out"
-}
 
 function ssh_connect() {
   local host="10.200.200.$1:"
   ssh -L 8000:localhost:8000 -t thomas@"$host" 'TERM=xterm-256color zsh -l -c "clear; exec zsh"'
-}
-
-function arduino_compile() {
-  arduino-cli compile --fqbn arduino:avr:$1 --output-dir build .
-}
-
-function arduino_upload() {
-  local port=$(alist | fzf --query "A" | awk '{print $1}')
-  local baud=${2:-9600}
-  arduino-cli upload -p $port --fqbn arduino:avr:$1 --input-dir build \
-    && echo "Uploaded to $port using $1" \
-    && arduino-cli monitor -p $port --config baudrate=$baud
-}
-
-function arduino_compile_and_upload() {
-  ac $1 && alu $1 $2
 }
 
 fzf_cmd_history() {

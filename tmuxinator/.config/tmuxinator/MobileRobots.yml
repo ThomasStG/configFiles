@@ -1,0 +1,17 @@
+name: MobileRobots
+root: ~/OneDrive-SNHU/26SPDAY/EG426/car
+
+enable_pane_titles: true
+pane_title_position: top
+
+windows:
+  - editor:
+      root: ~/OneDrive-SNHU/26SPDAY/EG426/car
+      layout: even-vertical
+      panes:
+        -
+  - serial:
+      root: ~/OneDrive-SNHU/26SPDAY/EG426/car
+      layout: even-vertical
+      panes:
+        -

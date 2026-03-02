@@ -1,0 +1,8 @@
+src="$1"
+out="${src%.*}"
+
+if g++ -std=c++26 -Wall -Wextra -O2 -o "$out.out" "$src"; then
+  "./$out.out"
+else
+  echo "Build failed!"
+fi

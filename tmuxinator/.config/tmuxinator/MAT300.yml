@@ -1,0 +1,17 @@
+name: MAT300
+root: ~/OneDrive-SNHU/26SPDAY/MAT300/kaggle1
+
+enable_pane_titles: true
+pane_title_position: top
+
+windows:
+  - editor:
+      root: ~/OneDrive-SNHU/26SPDAY/MAT300/kaggle1
+      layout: even-vertical
+      panes:
+        - nvim competition_writeup1.qmd
+  - server:
+      root: ~/OneDrive-SNHU/26SPDAY/MAT300/kaggle1
+      layout: even-vertical
+      panes:
+        - mprocs "quarto preview competition1_writup.qmd --port 4200"

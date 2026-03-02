@@ -14,16 +14,16 @@
 # session_path = "~/.session"
 
 ## date format used, either "us" or "uk"
-# dialect = "us"
+ dialect = "us"
 
 ## default timezone to use when displaying time
 ## either "l", "local" to use the system's current local timezone, or an offset
 ## from UTC in the format of "<+|->H[H][:M[M][:S[S]]]"
 ## for example: "+9", "-05", "+03:30", "-01:23:45", etc.
-# timezone = "local"
+ timezone = "local"
 
 ## enable or disable automatic sync
-# auto_sync = true
+auto_sync = true
 
 ## enable or disable automatic update checks
 # update_check = true
@@ -34,14 +34,14 @@
 ## how often to sync history. note that this is only triggered when a command
 ## is ran, so sync intervals may well be longer
 ## set it to 0 to sync after every command
-# sync_frequency = "10m"
+ sync_frequency = "10m"
 
 ## which search mode to use
 ## possible values: prefix, fulltext, fuzzy, skim
-# search_mode = "fuzzy"
+ search_mode = "fuzzy"
 
 ## which filter mode to use by default
-## possible values: "global", "host", "session", "session-preload", "directory", "workspace"
+## possible values: "global", "host", "session", "directory", "workspace"
 ## consider using search.filters to customize the enablement and order of filter modes
 # filter_mode = "global"
 
@@ -49,7 +49,7 @@
 ## in any directory within a git repository tree (default: false).
 ##
 ## To use workspace mode by default when available, set this to true and
-## set filter_mode to "workspace" or leave it unspecified and
+## set filter_mode to "workspace" or leave it unspecified and 
 ## set search.filters to include "workspace" before other filter modes.
 # workspaces = false
 
@@ -65,16 +65,11 @@
 
 ## which style to use
 ## possible values: auto, full, compact
-# style = "auto"
+style = "compact"
 
 ## the maximum number of lines the interface should take up
 ## set it to 0 to always go full screen
-# inline_height = 0
-
-## the maximum number of lines the interface should take up
-## when atuin is invoked from a shell up-key binding
-## the accepted values are identical to those of "inline_height"
-# inline_height_shell_up_key_binding = 0
+inline_height = 20
 
 ## Invert the UI - put the search bar at the top , Default to `false`
 # invert = false
@@ -99,10 +94,6 @@
 ## use ctrl instead of alt as the shortcut modifier key for numerical UI shortcuts
 ## alt-0 .. alt-9
 # ctrl_n_shortcuts = false
-
-## Show numeric shortcuts (1..9) beside list items in the TUI
-## set to false to hide the moving numbers if you find them distracting
-# show_numeric_shortcuts = true
 
 ## default history list format - can also be specified with the --format arg
 # history_format = "{time}\t{command}\t{duration}"
@@ -154,14 +145,9 @@
 ## 5. Stripe live/test keys
 # secrets_filter = true
 
-## Defaults to true. If enabled, upon hitting enter Atuin will immediately execute the command,
-## whereas tab will put the command in the prompt for editing.
-## If set to false, both enter and tab will place the command in the prompt for editing.
-## This applies for new installs. Old installs will keep the old behaviour unless configured otherwise.
+## Defaults to true. If enabled, upon hitting enter Atuin will immediately execute the command. Press tab to return to the shell and edit.
+# This applies for new installs. Old installs will keep the old behaviour unless configured otherwise.
 enter_accept = true
-
-## Defaults to false. If enabled, when triggered after &&, || or |, Atuin will complete commands to chain rather than replace the current line.
-# command_chaining = false
 
 ## Defaults to "emacs".  This specifies the keymap on the startup of `atuin
 ## search`.  If this is set to "auto", the startup keymap mode in the Atuin
@@ -169,7 +155,7 @@ enter_accept = true
 ## keybinding is defined.  If this is set to "emacs", "vim-insert", or
 ## "vim-normal", the startup keymap mode in the Atuin search is forced to be
 ## the specified one.
-# keymap_mode = "auto"
+keymap_mode = "vim-normal"
 
 ## Cursor style in each keymap mode.  If specified, the cursor style is changed
 ## in entering the cursor shape.  Available values are "default" and
@@ -194,11 +180,9 @@ enter_accept = true
 #   "composer",
 #   "dnf",
 #   "docker",
-#   "dotnet",
 #   "git",
 #   "go",
 #   "ip",
-#   "jj",
 #   "kubectl",
 #   "nix",
 #   "nmcli",
@@ -225,14 +209,6 @@ enter_accept = true
 [keys]
 # Defaults to true. If disabled, using the up/down key won't exit the TUI when scrolled past the first/last entry.
 # scroll_exits = true
-# Defaults to true. The left arrow key will exit the TUI when scrolling before the first character
-# exit_past_line_start = true
-# Defaults to true. The right arrow key performs the same functionality as Tab and copies the selected line to the command line to be modified.
-# accept_past_line_end = true
-# Defaults to false. The left arrow key performs the same functionality as Tab and copies the selected line to the command line to be modified.
-# accept_past_line_start = false
-# Defaults to false. The backspace key performs the same functionality as Tab and copies the selected line to the command line to be modified when at the start of the line.
-# accept_with_backspace = false
 
 [sync]
 # Enable sync v2 by default
@@ -246,7 +222,7 @@ records = true
 ## auto: length of the selected command.
 ## static: length of the longest command stored in the history.
 ## fixed: use max_preview_height as fixed height.
-# strategy = "auto"
+strategy = "auto"
 
 [daemon]
 ## Enables using the daemon to sync. Requires the daemon to be running in the background. Start it with `atuin daemon`
@@ -288,4 +264,4 @@ records = true
 ## The list of enabled filter modes, in order of priority.
 ## The "workspace" mode is skipped when not in a workspace or workspaces = false.
 ## Default filter mode can be overridden with the filter_mode setting.
-# filters = [ "global", "host", "session", "session-preload", "workspace", "directory" ]
+# filters = [ "global", "host", "session", "workspace", "directory" ]

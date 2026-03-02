@@ -17,7 +17,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc. Initialization code that may require console input (password prompts, [y/n] confirmations, etc.) must go above this block; everything else may go below.
 
-PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:/Users/thomas/.local/bin:${PATH}"
+PATH="/Users/thomas/.config/zsh:/Library/Frameworks/Python.framework/Versions/3.10/bin:/Users/thomas/.local/bin:${PATH}"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export PYENV_ROOT="$HOME/.pyenv"
 export TMUX_POWERLINE_STATUS_LEFT_LENGTH="60"

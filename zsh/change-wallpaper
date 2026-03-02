@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+WALL_DIR="$HOME/PersonalProjects/desktops"
+
+# Determine preview command
+PREVIEW_CMD='viu -w ${FZF_PREVIEW_COLUMNS} -h ${FZF_PREVIEW_LINES} "{}"'
+
+selection=$(
+  find "$WALL_DIR" -type f \
+    \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) \
+    -exec realpath {} \; \
+    | fzf --preview "$PREVIEW_CMD" --preview-window=right:60%
+)
+
+if [[ -n "${selection:-}" ]]; then
+  m wallpaper --set "$selection"
+fi

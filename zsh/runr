@@ -1,0 +1,10 @@
+  script="$1"
+  out="plot.png"
+
+  Rscript -e "
+    png('$out', width=800, height=600);
+    source('$script');
+    dev.off()
+  "
+
+  kitten icat "$out"

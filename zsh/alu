@@ -1,0 +1,5 @@
+port=$(alist | fzf --query "A" | awk '{print $1}')
+baud=${2:-9600}
+arduino-cli upload -p $port --fqbn arduino:avr:$1 --input-dir build \
+  && echo "Uploaded to $port using $1" \
+  && arduino-cli monitor -p $port --config baudrate=$baud

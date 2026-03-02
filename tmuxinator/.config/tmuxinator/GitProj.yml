@@ -1,0 +1,9 @@
+name: GitProj
+root: ~/PersonalProjects/git
+
+windows:
+  - editor:
+      layout: even-vertical
+      panes:
+        - nvim ~/PersonalProjects/git/src
+        -
