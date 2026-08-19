@@ -1,18 +1,8 @@
-vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
-vim.cmd("let g:netrw_liststyle = 3")
-
-vim.filetype.add({
-    extension = {
-        qmd = "quarto",
-    },
-})
-
-vim.keymap.set("n", "<localleader>qr", function()
-    vim.cmd("write")
-    vim.cmd("!quarto render %")
-end, { desc = "Quarto render current file" })
-
 local opt = vim.opt
+
+vim.opt.grepprg = "rg --vimgrep --smart-case"
+opt.grepformat="%f:%l:%c:%m"
+
 opt.relativenumber = true
 opt.number = true
 
@@ -55,65 +45,6 @@ opt.splitright = true -- split vertical window to the right opt.splitbelow = tru
 -- turn off swapfile
 opt.swapfile = false
 
-opt.mousescroll = "ver:0,hor:0"
-opt.mouse = ""
-opt.omnifunc = "v:lua.vim.lsp.omnifunc"
-vim.api.nvim_create_user_command(
-    "Play", -- Command name
-    function()
-        vim.cmd("!spotify play/pause >/dev/null") -- Shell command to run
-    end,
-    { desc = "pause/play spotify" } -- Optional description
-)
-
-local state = {
-    floating = {
-        buf = -1,
-        win = -1,
-    },
-}
-
-local function create_floating_window(opts)
-    opts = opts or {}
-    local width = opts.width or math.floor(vim.o.columns * 0.8)
-    local height = opts.height or math.floor(vim.o.lines * 0.8)
-
-    local col = math.floor((vim.o.columns - width) / 2)
-    local row = math.floor((vim.o.lines - height) / 2)
-
-    local buf = nil
-    if vim.api.nvim_buf_is_valid(opts.buf) then
-        buf = opts.buf
-    else
-        buf = vim.api.nvim_create_buf(false, true)
-    end
-
-    local win_config = {
-        relative = "editor",
-        width = width,
-        height = height,
-        col = col,
-        row = row,
-        style = "minimal",
-        border = "rounded",
-    }
-
-    local win = vim.api.nvim_open_win(buf, true, win_config)
-    return { buf = buf, win = win }
-end
-
-local toggle_terminal = function()
-    if not vim.api.nvim_win_is_valid(state.floating.win) then
-        state.floating = create_floating_window({ buf = state.floating.buf })
-        if vim.bo[state.floating.buf].buftype ~= "terminal" then
-            vim.cmd.terminal()
-        end
-    else
-        vim.api.nvim_win_hide(state.floating.win)
-    end
-end
-vim.api.nvim_create_user_command("Floaterminal", toggle_terminal, {})
-
 vim.g.copilot_enabled = false
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_filetypes = {
@@ -121,40 +52,12 @@ vim.g.copilot_filetypes = {
 }
 vim.g.transparent_enabled = true
 
-vim.api.nvim_create_autocmd("TermOpen", {
-    callback = function(args)
-        -- Only run for iron REPL buffers
-        local bufname = vim.api.nvim_buf_get_name(args.buf)
-        if not bufname:match("iron") then
-            return
-        end
-
-        -- Only run once per buffer
-        if vim.b[args.buf].wd_set then
-            return
-        end
-        vim.b[args.buf].wd_set = true
-
-        -- Determine the root directory (current buffer's folder or fallback to cwd)
-        local root = vim.fn.expand("%:p:h")
-        if root == "" then
-            root = vim.fn.getcwd()
-        end
-
-        -- Delay to ensure terminal job is fully attached
-        vim.defer_fn(function()
-            local job = vim.b[args.buf].terminal_job_id
-            if not job then
-                return
-            end
-
-            -- Send setwd command to R REPL
-            vim.fn.chansend(job, "setwd(normalizePath(" .. vim.fn.string(root) .. "))\n")
-
-            -- Optional debug: uncomment to see confirmation in REPL
-            -- vim.fn.chansend(job, "cat('AUTO SETWD FIRED: " .. root .. "\\n')\n")
-        end, 200) -- 200ms is usually sufficient
-    end,
-})
-
-vim.g.skip_ts_context_commentstring_module = true
+-- Persistent undo
+if vim.fn.has("persistent_undo") == 1 then
+    local target_path = vim.fn.expand("~/.undodir")
+    if vim.fn.isdirectory(target_path) == 0 then
+        vim.fn.mkdir(target_path, "p", 0700)
+    end
+    vim.o.undodir = target_path
+    vim.o.undofile = true
+end

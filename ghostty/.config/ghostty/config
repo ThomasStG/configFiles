@@ -1,12 +1,31 @@
 quit-after-last-window-closed = true
+
 font-family =  hack-nerd-font
 font-size = 14
 theme = Gruvbox Light
 theme = Belafonte Day
 theme = Monokai Pro Octagon
+theme = Tokyonight Storm
 macos-titlebar-style = hidden
+background-opacity = 0.8
+
 clipboard-write = allow
 shell-integration = zsh
-background-opacity = 0.5
-keybind = global:cmd+option+t=toggle_quick_terminal
 macos-option-as-alt = left
+
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = notify
+notify-on-command-finish-after = 30s
+
+macos-applescript = false
+
+window-inherit-working-directory = false
+tab-inherit-working-directory = true
+split-inherit-working-directory = true
+
+keybind = global:cmd+option+t=toggle_quick_terminal
+
+keybind = ctrl+shift+d=unbind
+keybind = ctrl+shift+enter=unbind
+
+keybind = ctrl+.=toggle_background_opacity

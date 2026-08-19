@@ -17,8 +17,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc. Initialization code that may require console input (password prompts, [y/n] confirmations, etc.) must go above this block; everything else may go below.
 
-PATH="/Users/thomas/.config/zsh:/Library/Frameworks/Python.framework/Versions/3.10/bin:/Users/thomas/.local/bin:${PATH}"
+PATH="/Users/thomas/programs:/Users/thomas/.config/zsh:/Library/Frameworks/Python.framework/Versions/3.10/bin:/Users/thomas/.local/bin:/Users/thomas/go/bin:${PATH}"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+export HOMEBREW_NO_REQUIRE_TAP_TRUST="1"
 export PYENV_ROOT="$HOME/.pyenv"
 export TMUX_POWERLINE_STATUS_LEFT_LENGTH="60"
 export TMUX_POWERLINE_STATUS_RIGHT_LENGTH="90"
@@ -117,12 +118,29 @@ spf() {
     }
 }
 
-zsh-defer source ~/.config/zsh/spotify.zsh
-zsh-defer source ~/.config/zsh/yazi.zsh
-zsh-defer source ~/.config/zsh/eza.zsh
-zsh-defer source ~/.config/zsh/alias.zsh
-zsh-defer source ~/.config/zsh/atuin.zsh
+zsh-defer source $HOME/spotify.zsh
+zsh-defer source $HOME/yazi.zsh
+zsh-defer source $HOME/eza.zsh
+zsh-defer source $HOME/alias.zsh
+zsh-defer source $HOME/atuin.zsh
+zsh-defer source $HOME/.config/zsh/programFinder.zsh
+zsh-defer source $HOME/.config/zsh/pls_conf.sh
+source /Users/thomas/.config/broot/launcher/bash/br
 autoload -U +X bashcompinit && bashcompinit
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^e' edit-command-line
 complete -o nospace -C /opt/homebrew/bin/bit bit
 
 source /Users/thomas/.config/broot/launcher/bash/br
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
+
+#source ~/.config/zsh/pls_conf
+habit-cli list
+pls
+$HOME/envInit
+source $HOME/intelli-shell-init.zsh
+zsh-defer eval "$(mise activate zsh)"
+zsh-defer eval "$(navi widget zsh)"
+alias x='~/go/bin/drako'

@@ -21,9 +21,17 @@
     "theherk",
     "chris_van_es",
     "vicampuzano",
-    "ErBlack"
+    "ErBlack",
+    "byheaven",
+    "tofrankie",
+    "alexi.build",
+    "veilwalker",
+    "raulkolaric"
   ],
   "license": "MIT",
+  "engines": {
+    "node": ">=22.22.2"
+  },
   "preferences": [
     {
       "name": "vaultPath",
@@ -659,7 +667,7 @@
           },
           "searchContent": {
             "type": "boolean",
-            "description": "Whether to search inside note content and enable tag filtering.\nSet to false for faster title/path-only search.\nDefaults to true."
+            "description": "Whether to search inside note content and enable tag filtering.\nSet to true only when the user needs full-text or tag search.\nDefaults to false (title/path only) so a single oversized Markdown\nfile cannot OOM the extension worker."
           }
         },
         "required": [
@@ -817,8 +825,9 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.94.0",
+    "@raycast/api": "^1.104.23",
     "@types/uuid": "^8.3.4",
+    "fast-glob": "^3.3.3",
     "fuse.js": "^7.0.0",
     "luxon": "^3.4.4",
     "minisearch": "^7.1.2",
@@ -827,16 +836,16 @@
     "yaml": "^2.1.1"
   },
   "devDependencies": {
-    "@raycast/eslint-config": "^1.0.6",
+    "@raycast/eslint-config": "^2.2.0",
     "@types/luxon": "^3.4.2",
     "@types/node": "^22.14.1",
     "@types/pako": "^2.0.3",
     "@types/react": "19.0.10",
-    "@vitest/coverage-v8": "^3.2.4",
-    "eslint": "^8.42.0",
+    "@vitest/coverage-v8": "^3.2.6",
+    "eslint": "^9.22.0",
     "prettier": "^2.8.8",
     "typescript": "^4.5.4",
-    "vitest": "^3.1.1"
+    "vitest": "^3.2.6"
   },
   "scripts": {
     "build": "ray build -e dist",
@@ -853,7 +862,7 @@
     "macOS",
     "Windows"
   ],
-  "version": "1.0.0",
+  "version": "1.0.2",
   "ai": {
     "instructions": "Obsidian is a powerful knowledge base that works on top of a local folder of plain text Markdown files. You can help users search for notes, read notes, create new notes, open existing notes and append content to notes. Always ensure that you follow the user's instructions carefully and confirm any actions that will modify or create notes. If the user wants to open a note, make sure to use the appropriate command to open it in the Obsidian application. Default to the root of the vault when creating notes and only add tags when explicitly instructed by the user. When appending content, always confirm the exact content and location with the user before making changes. If you find any wikilinks in a note (syntax: [[Note Name | some alias]]) then you can simply use the search tool to search for 'Note Name' in the same vault you found the previous note in. Before using any tools that require a vault name or vault path, use the Get Vaults tool to request all available vaults first. Then use the returned information to call other tools. Especially because the user might not write the correct vault name but only reference it.",
     "evals": [

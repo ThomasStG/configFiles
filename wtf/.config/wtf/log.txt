@@ -5677,3 +5677,25 @@
 2026/02/02 14:10:21 log.go:23: Protocol version: auto
 2026/02/02 14:10:21 log.go:23: Network: tcp
 2026/02/02 14:10:21 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/03/06 17:48:46 log.go:23: Protocol version: auto
+2026/03/06 17:48:46 log.go:23: Network: tcp
+2026/03/06 17:48:46 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/03/06 17:48:47 log.go:23: [urlcheck] https://google.com: Timeout
+2026/03/06 17:49:17 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/03/06 17:49:47 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/03/06 17:50:17 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/03/06 17:50:47 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/03/06 17:51:17 log.go:23: Protocol version: auto
+2026/03/06 17:51:17 log.go:23: Network: tcp
+2026/03/06 17:51:17 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/03/06 17:51:47 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/03/06 17:52:17 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/03/06 17:52:47 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/03/06 17:53:17 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/03/06 17:53:47 log.go:23: Protocol version: auto
+2026/03/06 17:53:47 log.go:23: Network: tcp
+2026/03/06 17:53:47 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/03/06 17:54:17 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused
+2026/03/25 15:07:26 log.go:23: Protocol version: auto
+2026/03/25 15:07:26 log.go:23: Network: tcp
+2026/03/25 15:07:26 log.go:23: [urlcheck] http://127.0.0.1:5173: Head "http://127.0.0.1:5173": dial tcp 127.0.0.1:5173: connect: connection refused

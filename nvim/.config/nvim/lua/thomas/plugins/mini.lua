@@ -5,7 +5,7 @@ return {
         config = function()
             -- Enable mini.pairs (automatic pairing of brackets and quotes)
             require("mini.ai").setup()
-            require("mini.align").setup()
+            require("mini.align").setup() -- TODO: Finish setup (look into keybinds)
             require("mini.completion").setup({
                 checkout = "stable",
                 lsp_completion = {
@@ -21,6 +21,7 @@ return {
                 },
             })
             require("mini.move").setup()
+            -- TODO: Add mini.surround mini.snippets
         end,
     },
 }

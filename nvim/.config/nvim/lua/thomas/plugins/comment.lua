@@ -33,7 +33,7 @@ return {
                 extra = true, -- Enables `gcO`, `gco`, `gcA`
             },
             post_hook = nil, -- Hook to run after commenting
-            pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+            pre_hook = ts_context_commentstring.create_pre_hook(),
         })
     end,
 }

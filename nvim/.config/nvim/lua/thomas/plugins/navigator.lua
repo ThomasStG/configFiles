@@ -1,19 +1,15 @@
--- Navigate tmux panes from neovim
 return {
-    "numToStr/Navigator.nvim",
-    lazy = true,
-    config = function()
-        require("Navigator").setup({
-            keymaps = {
-                left = "<C-h>",
-                down = "<C-j>",
-                up = "<C-k>",
-                right = "<C-l>",
-            },
-            disable_default_keybindings = false,
-            style = "minimal",
-            disable_on_zoom = true,
-            mux = "auto",
-        })
-    end,
+	"numToStr/Navigator.nvim",
+	keys = {
+		{ "<C-h>", "<cmd>NavigatorLeft<cr>" },
+		{ "<C-j>", "<cmd>NavigatorDown<cr>" },
+		{ "<C-k>", "<cmd>NavigatorUp<cr>" },
+		{ "<C-l>", "<cmd>NavigatorRight<cr>" },
+	},
+	config = function()
+		require("Navigator").setup({
+			disable_on_zoom = true,
+			mux = "auto",
+		})
+	end,
 }

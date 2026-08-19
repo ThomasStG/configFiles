@@ -2,7 +2,7 @@ return {
     "folke/noice.nvim",
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "hrsh7th/nvim-cmp", -- Optional, required for completion features
+        "hrsh7th/nvim-cmp",
         "MunifTanjim/nui.nvim",
         "rcarriga/nvim-notify",
     },
@@ -10,12 +10,12 @@ return {
         require("noice").setup({
             lsp = {
                 progress = {
-                    enabled = false, -- Disable LSP progress messages if not needed
+                    enabled = false,
                 },
                 override = {
                     ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
                     ["vim.lsp.util.stylize_markdown"] = true,
-                    ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+                    ["cmp.entry.get_documentation"] = true,
                 },
                 signature = {
                     enabled = true, -- Enable floating signature help
@@ -38,9 +38,9 @@ return {
             messages = {
                 enabled = true,
                 view = "notify",
-                view_error = "notify", -- view for errors
-                view_warn = "notify", -- view for warnings
-                view_history = "messages", -- view for :messages
+                view_error = "notify",
+                view_warn = "notify",
+                view_history = "messages",
                 view_search = "virtualtext",
             },
         })

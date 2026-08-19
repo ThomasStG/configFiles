@@ -1,4 +1,5 @@
 alias cat="bat"
+alias pf='source ~/.config/zsh/programFinder.zsh && cmd_search'
 alias gitc="git -h"
 alias vimfz="fzf --tmux 80% --bind 'enter:become(nvim {})'"            # Center, 80% width and height
 alias v="nvim ./"
@@ -21,6 +22,9 @@ alias ch="cheatshh"
 alias wtf="wtfutil"
 alias remote="ssh_connect"
 alias at="arduino-cli upload -p /dev/tty.usbmodem14101 --fqbn arduino:avr:uno --verify"
+alias pip="uv pip"
+alias venv="uv venv"
+alias prog="navi"
 
 function ssh_connect() {
   local host="10.200.200.$1:"

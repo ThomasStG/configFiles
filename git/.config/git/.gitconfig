@@ -9,6 +9,23 @@
 [init]
 	defaultBranch = main
 [core]
+  pager = delta
 	autocrlf = input
+[delta]
+  navigate = true
+  side-by-side = true
+  line-numbers = true
+  syntax-theme = Dracula
 [github]
 	user = ThomasStG
+[interactive]
+  diffFilter = delta --color-only
+[merge]
+  conflictstyle = diff3
+[diff]
+  tool = difftastic
+  colorMoved = default
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[alias]
+  dft = difftool
